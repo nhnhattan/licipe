@@ -1,0 +1,873 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <meta
+            name="viewport"
+            content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0"
+    />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge"/>
+    <title>Document</title>
+    <!--    Jquery  -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+
+    <!--  Bootstrap  -->
+    <link
+            rel="stylesheet"
+            href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css"
+    />
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="./node_modules/fullpage.js/dist/fullpage.css"
+    />
+    <script src="./node_modules/fullpage.js/vendors/easings.min.js"></script>
+    <script
+            type="text/javascript"
+            src="node_modules/fullpage.js/dist/fullpage.js"
+    ></script>
+    <script src="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.26/dist/fullpage.min.js"></script>
+    <link
+            href="https://cdn.jsdelivr.net/npm/fullpage.js@4.0.26/dist/fullpage.min.css"
+            rel="stylesheet"
+    />
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+
+    <!--  Slick.js  -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css"
+    />
+
+    <!-- Toastify.js -->
+    <link
+            rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/toastify-js/src/toastify.min.css"
+    />
+
+    <!-- Include Toastify JS -->
+    <script src="https://cdn.jsdelivr.net/npm/toastify-js"></script>
+
+    <!-- Cropper.js CSS -->
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
+    />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
+    <script src="./assets/libs/js/cropper.js"></script>
+
+    <!-- Add the slick-theme.css if you want default styling -->
+    <link
+            rel="stylesheet"
+            type="text/css"
+            href="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css"
+    />
+
+    <!--  Add File  -->
+    <link rel="stylesheet" href="./assets/libs/css/all.css"/>
+    <link rel="stylesheet" href="./assets/libs/css/gameplay.css"/>
+    <script src="assets/libs/js/all.js"></script>
+
+    <!-- Api -->
+    <script src="./assets/libs/js/api.js"></script>
+
+    <!-- 3d -->
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/build/three.min.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/controls/OrbitControls.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/loaders/GLTFLoader.js "></script>
+
+    <link
+            rel="stylesheet"
+            href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css"
+    />
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+          rel="stylesheet">
+
+</head>
+<body>
+<div class="overlay">
+    <div class="hidebar-wrapper">
+        <div class="hidebar-header">
+            <p class="btn-menu_close">&#10006;</p>
+            <div class="header-logo">Logo 135 năm & LipIce</div>
+        </div>
+        <div class="hidebar-banner">
+            <div class="banner-lipsticks">Các dòng son LipIce</div>
+            <div class="banner-join">Tham gia ngay</div>
+        </div>
+        <div class="hidebar-list">
+            <div class="hidebar-item">
+                <a data-menuanchor="rules" href="#2">GIẢI THƯỞNG & THỂ LỆ</a>
+            </div>
+            <div class="hidebar-item">
+                <a href="#3" data-menuanchor="instruction">HƯỚNG DẪN THAM GIA</a>
+            </div>
+            <div class="hidebar-item">
+                <a href="#4" data-menuanchor="gameplay">THAM GIA THIẾT KẾ</a>
+            </div>
+            <div class="hidebar-item">
+                <a href="#5" data-menuanchor="submissions">BÀI DỰ THI</a>
+            </div>
+            <div class="hidebar-item">
+                <a href="#6" data-menuanchor="banner">THÔNG TIN SẢN PHẨM</a>
+            </div>
+            <div class="hidebar-item">
+                <a href="#7" data-menuanchor="brand-story"
+                >CÂU CHUYỆN THƯƠNG HIỆU</a
+                >
+            </div>
+        </div>
+    </div>
+</div>
+<div class="main" id="main">
+    <div class="navbar-header">
+        <div class="navbar-wrapper">
+            <div class="navbar-logo" id="logo-home" data-menuanchor="banner">
+                <img src="assets/img/logo.png">
+            </div>
+            <ul id="menu">
+                <li data-menuanchor="rules">
+                    <a href="#2">Thể lệ & Giải thưởng</a>
+                </li>
+                <li data-menuanchor="instruction"><a href="#3">Hướng dẫn</a></li>
+                <li data-menuanchor="gameplay">
+                    <a href="#4">Tham gia thiết kế</a>
+                </li>
+                <li data-menuanchor="submissions"><a href="#5">Bài dự thi</a></li>
+                <li data-menuanchor="product-informations">
+                    <a href="#6">Sản phẩm</a>
+                </li>
+                <li data-menuanchor="brand-story" id="bs">
+                    <a href="#7">Câu chuyện</a>
+                </li>
+            </ul>
+            <div>
+                <button class="menu-button" id="menu-button">☰</button>
+            </div>
+        </div>
+    </div>
+
+    <div class="quick-control-left" id="quick-control-left">
+        <div class="control-top">
+            <img
+                    src="./assets/img/lipstickminisize.png"
+                    alt=""
+            />
+        </div>
+        <div>
+            <p>
+                Thông tin <br/>
+                sản phẩm
+            </p>
+        </div>
+    </div>
+    <div class="quick-control-right" id="quick-control-right">
+        <div class="control-top">
+            <img
+                    src="./assets/img/lipstickminisize.png"
+                    alt=""
+            />
+        </div>
+        <div>
+            <p>Chơi ngay</p>
+        </div>
+    </div>
+    <div class="scroll-down" id="scroll-down">
+        <p class="scroll-down_text">Scroll Down ⟶</p>
+    </div>
+
+    <!-- <footer class="footer">
+          <div>
+              <p>Copyright© Unicharm Corporation</p>
+              <p>http://diana.com.vn</p>
+              <p>Email:freeyourself@admicro.vn</p>
+          </div>
+          <div>
+              <p>Facebook</p>
+              <p>Instagram</p>
+              <p>Youtube</p>
+          </div>
+    </footer> -->
+
+    <div id="background-container">
+        <video id="background-video" autoplay muted loop>
+            <source src="./assets/video/BG.mp4" type="video/mp4"/>
+            Your browser does not support the video tag.
+        </video>
+    </div>
+
+    <div id="fullpage">
+        <div class="section banner" data-menuanchor="banner">Banner</div>
+        <div class="section rules">
+            <div class="wrapper">
+                <div class="rules-slide">
+                    <div class="rules-slide-wrapper">
+                        <div class="rule-slide-inner">
+                            <div class="content-top">
+                                <button
+                                        class="rules-button_left"
+                                        disabled
+                                >
+                                    ◀
+                                </button>
+                                <p>Giải thưởng</p>
+                                <button class="rules-button_right" id="rules-button_right">
+                                    ▶
+                                </button>
+                            </div>
+                            <div class="row prize-wrapper">
+                                <div class="row section-wrapper">
+                                    <div class="col-lg-6">
+                                        <div class="row col-left">
+                                            <div class="col-4 number-prize">
+                                                <img
+                                                        src="https://png.pngtree.com/png-clipart/20190612/original/pngtree-first-prize-vector-diagram-png-image_3496121.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div class="col-4 content">
+                                                <p>Giải nhất</p>
+                                                <p>
+                                                    30.000.000 VNĐ được trao <br/>
+                                                    bằng tiền mặt
+                                                </p>
+                                            </div>
+                                            <div class="col-4 icons-prize">
+                                                <img src="./assets/img/money.png" alt=""/>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-6 col-left">
+                                        <div class="col-4 number-prize">
+                                            <img
+                                                    src="https://png.pngtree.com/png-clipart/20190612/original/pngtree-first-prize-vector-diagram-png-image_3496121.jpg"
+                                                    alt=""
+                                            />
+                                        </div>
+                                        <div class="col-4 content">
+                                            <p>Giải nhì</p>
+                                            <p>
+                                                mỗi giải là 01 tai nghe không <br/>
+                                                dây Airpods 2 trị giá
+                                                <br/>
+                                                5.000.000 VNĐ
+                                            </p>
+                                        </div>
+                                        <div class="col-4 icons-prize">
+                                            <img src="./assets/img/money.png" alt=""/>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row section-wrapper">
+                                    <div class="col-lg-5 col-left">
+                                        <div class="col-4 number-prize">
+                                            <img
+                                                    src="https://png.pngtree.com/png-clipart/20190612/original/pngtree-first-prize-vector-diagram-png-image_3496121.jpg"
+                                                    alt=""
+                                            />
+                                        </div>
+                                        <div class="col-4 content">
+                                            <p>
+                                                Giải Fresh <br/>
+                                                Yourself
+                                            </p>
+                                            <p>
+                                                Hộp bảo bối "Cool <br/>
+                                                Fresh"
+                                            </p>
+                                        </div>
+                                        <div class="col-4 icons-prize">
+                                            <img src="./assets/img/money.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            18 Giải tuần - Giải Fresh Yourself, mỗi giải là
+                                            <span
+                                            >01 Hộp
+                            <br/>
+                            quà "Bảo bối Cool Fresh"</span
+                                            >
+                                            gồm:
+                                        </div>
+                                        <div class="row gift-wrapper">
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="row section-wrapper">
+                                    <div class="col-lg-5 col-left">
+                                        <div class="col-4 number-prize">
+                                            <img
+                                                    src="https://png.pngtree.com/png-clipart/20190612/original/pngtree-first-prize-vector-diagram-png-image_3496121.jpg"
+                                                    alt=""
+                                            />
+                                        </div>
+                                        <div class="col-4 content">
+                                            <p>
+                                                Giải Cool <br/>
+                                                Fresh <br/>
+                                                may mắn
+                                            </p>
+                                            <p>
+                                                Bộ kit "Freeze <br/>
+                                                Troubles"
+                                            </p>
+                                        </div>
+                                        <div class="col-4 icons-prize">
+                                            <img src="./assets/img/money.png" alt=""/>
+                                        </div>
+                                    </div>
+                                    <div class="col-lg-7">
+                                        <div class="row">
+                                            4500 Giải Cool Fresh may mắn, mỗi giải gồm
+                                            <span
+                                            >01 Bộ Kit
+                            <br/>
+                            "Freeze Troubles"</span
+                                            >
+                                            cho mỗi người tham gia gồm:
+                                        </div>
+                                        <div class="row gift-wrapper">
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                            <div>
+                                                <img
+                                                        src="./assets/img/add.png"
+                                                        alt=""
+                                                        class="plus-icons"
+                                                />
+                                            </div>
+                                            <div class="prize-item">
+                                                <img
+                                                        src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.jpg"
+                                                        alt=""
+                                                />
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rules-slide">
+                    <div class="rules-slide-wrapper">
+                        <div class="rule-slide-inner">
+                            <div class="content-top">
+                                <button class="rules-button_left">
+                                    ◀
+                                </button>
+                                <p>Thể lệ chương trình</p>
+                                <button
+                                        class="rules-button_right"
+                                >
+                                    ▶
+                                </button>
+                            </div>
+                            <h2>Thể lệ chương trình</h2>
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Dolore impedit praesentium in numquam aspernatur deleniti
+                                    corporis? Optio cumque voluptates odit vero quas
+                                    blanditiis dolorem earum, temporibus facilis a laboriosam
+                                    minima.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="rules-slide">
+                    <div class="rules-slide-wrapper">
+                        <div class="rule-slide-inner">
+                            <div class="content-top">
+                                <button class="rules-button_left">
+                                    ◀
+                                </button>
+                                <p>Công bố và trao giải</p>
+                                <button
+                                        class="rules-button_right"
+                                        id="rules-button_right-3"
+                                >
+                                    ▶
+                                </button>
+                            </div>
+                            <h2>Công bố và trao giải</h2>
+                            <div>
+                                <p>
+                                    Lorem ipsum dolor, sit amet consectetur adipisicing elit.
+                                    Dolore impedit praesentium in numquam aspernatur deleniti
+                                    corporis? Optio cumque voluptates odit vero quas
+                                    blanditiis dolorem earum, temporibus facilis a laboriosam
+                                    minima.
+                                </p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section instruction">
+            <div class="instruction-wrapper">
+                <div>
+                    <div class="content-top"><p>Hướng dẫn tham gia</p></div>
+                    <video width="65%" height="auto" loop controls id="video-instruction">
+                        <source src="./assets/video/12409852_2560_1440_30fps.mp4" type="video/mp4">
+                        Your browser does not support the video tag.
+                    </video>
+                    <div>
+                        <button id="btn_join-now">Tham gia ngay</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section gameplay">
+            <div class="row gameplay-wrapper p-2">
+                <div class="col-lg-6 p-0" style="height: 100%;">
+                    <div class="row step-text">Bước 1: Tạo hình nền cây son</div>
+                    <div class="col-lg-6" style="height: 33%;">
+                        <textarea
+                                name=""
+                                id="keyword-box"
+                                placeholder="Nhập nội dung hình nền..."
+                        ></textarea>
+                        <p id="result" style="color: red;"></p>
+                        <ul id="forbiddenWordsList" style="color: red; display: none;"></ul>
+                    </div>
+                    <div class="col-lg-6" style="height: 33%;">
+                        <div class="image-ai-wrapper">
+                            <div class="image-ai">
+                                <img src="" alt="" class="image-ai-img"/>
+                                <div class="loading-container">
+                                    <div class="progress-bar">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="percentage">0%</div>
+                                </div>
+                            </div>
+                            <button id="create-image-ai" disabled>Tạo hình nền</button>
+                        </div>
+                    </div>
+                    <div class="row step-text">Bước 2: Tạo logo cây son</div>
+                    <div class="col-lg-6" style="height: 33%;">
+                        <div class="image-ai-wrapper">
+                            <div class="croppedContainer">
+                                <img id="croppedImage" src="" style="max-width: 100%;"/>
+                                <div class="removeImageButton" id="removeImageButton">
+                                    X
+                                </div>
+                            </div>
+
+                            <div class="file-upload-container">
+                                <div>
+                                    <input
+                                            type="file"
+                                            id="uploadImage"
+                                            accept="image/*"
+                                            class="file-upload"
+                                    />
+                                    <label for="uploadImage" class="file-upload-label"
+                                    >Upload</label
+                                    >
+                                    <div id="file-name">No file chosen</div>
+                                </div>
+                                <button id="openModalButton" style="display:none;">
+                                    Crop Again
+                                </button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-lg-6" style="height: 33%;">
+                        <div class="image-ai-wrapper">
+                            <div class="avatar-ai">
+                                <img src="" alt="" class="avatar-ai-img"/>
+                                <div class="loading-container">
+                                    <div class="progress-bar">
+                                        <div class="progress"></div>
+                                    </div>
+                                    <div class="percentage">0%</div>
+                                </div>
+                            </div>
+                            <button id="uploadImageButton">Tạo Logo</button>
+                        </div>
+                    </div>
+                    <div class="row text-uppercase create-ai-btn-bottom">
+                        <button id="reset-btn">Hoàn tác (0/3)</button>
+                        <button id="create-lipstick" disabled>Tạo cây son của bạn</button>
+                        <button id="download-lipstick" style="display: none;">
+                            Tải ảnh về
+                        </button>
+                    </div>
+                </div>
+                <div class="col-lg-6 lipsticks-result-wrapper" style="height: 100%;">
+                    <p>Tạo nhãn son Licipe độc bản</p>
+                    <div
+                            id="lipsticks-result"
+                            style="height: 75%; width: 75%"
+                    ></div>
+                </div>
+            </div>
+            <div class="modal-result" id="modal-result">
+                <div class="finish-lipstick-wrapper">
+                    <div class="close-finish-btn" id="close-finish-btn">&#x2718;</div>
+                    <div class="finish-img-wrapper" id="finish-img-wrapper">
+                        <img
+                                id="capturedImage"
+                                alt="Captured Image"
+                                style="display: none"
+                        />
+                        <img
+                                src="./assets/img/circle-logo.png"
+                                alt=""
+                                class="circle-logo"
+                        />
+                        <img src="./assets/img/logo.png" alt=""/>
+                        <div class="username-content"><p>Một thiết kế nhãn son LipIce độc đáo đến từ <span
+                                id="lipstick-username"></span></p>
+                        </div>
+                    </div>
+                    <div class="finish-button-wrapper">
+                        <button id="download-img">Tải ảnh</button>
+                        <button>Chia sẻ</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section submissions">
+            <div class="submission-wrapper">
+                <div class="wrapper-broken-line"></div>
+                <div>
+                    <h1>Bài dự thi</h1>
+                </div>
+                <div class="slick-carousel">
+                    <div class="submission-slide">
+                        <div class="submissions-img-wrapper">
+                            <img src="./assets/img/test.png" alt=""/>
+                        </div>
+                        <div class="vote-information">
+                            <p>Name</p>
+                            <p>Vote</p>
+                        </div>
+                    </div>
+                    <div class="submission-slide">
+                        <div class="submissions-img-wrapper">
+                            <img src="./assets/img/test.png" alt=""/>
+                        </div>
+                        <div class="vote-information">
+                            <p>Name</p>
+                            <p>Vote</p>
+                        </div>
+                    </div>
+                    <div class="submission-slide">
+                        <div class="submissions-img-wrapper">
+                            <img src="./assets/img/test.png" alt=""/>
+                        </div>
+                        <div class="vote-information">
+                            <p>Name</p>
+                            <p>Vote</p>
+                        </div>
+                    </div>
+                    <div class="submission-slide">
+                        <div class="submissions-img-wrapper">
+                            <img src="./assets/img/test.png" alt=""/>
+                        </div>
+                        <div class="vote-information">
+                            <p>Name</p>
+                            <p>Vote</p>
+                        </div>
+                    </div>
+                    <div class="submission-slide">
+                        <div class="submissions-img-wrapper">
+                            <img src="./assets/img/test.png" alt=""/>
+                        </div>
+                        <div class="vote-information">
+                            <p>Name</p>
+                            <p>Vote</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="art-footer-wrapper"></div>
+        </div>
+        <div class="section information">
+            <div class="information-wrapper">
+                <h2>Thông tin sản phẩm</h2>
+                <div class="custom-pagination">
+                    <div data-slide="0">Licipe derma care</div>
+                    <div data-slide="1">Lip pure</div>
+                    <div data-slide="2">Lip pure có màu</div>
+                    <div data-slide="3">Lip melty</div>
+                    <div data-slide="4">Medilip</div>
+                    <div data-slide="5">Licipe creamy</div>
+                    <div data-slide="6">Licipe sheer color</div>
+                    <div data-slide="7">Licipe sheer color q</div>
+                    <div data-slide="8">Licipe fruit juice</div>
+                </div>
+                <div class="custom-prev"></div>
+                <div class="custom-next"></div>
+                <div class="slick-carousel">
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Licipe derma care"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Lip pure"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Lip pure có màu"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Lip melty"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Medilip"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Licipe creamy"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Licipe sheer color"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Licipe sheer color q"
+                        />
+                    </div>
+                    <div>
+                        <img
+                                src="./assets/img/pngwing.com.png"
+                                alt="Licipe fruit juice"
+                        />
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="section brand-story">
+            <div class="brand_story-wrapper">
+                <div class="row infor-content">
+                    Câu chuyện thương hiệu
+                </div>
+                <div class="brand_story-information">
+                    <div class="infor-left">
+                        <p>LipIce đến từ Mentholatum thương hiệu có bề dày lịch sử 135 năm:</p>
+                        <p><span>1894:</span> Mentholatum mở đầu hành trình chăm sóc sức khỏe - sắc đẹp và nhanh chóng
+                            trở thành một thương hiệu nổi tiếng trên toàn Thế Giới.</p>
+                        <p><span>Thập niên 90:</span> LipIce từ Mentholatum xuất hiện, là nhãn hiệu đầu tiên chăm
+                            sóc và tô điểm “môi xinh” của hàng triệu cô gái Việt.</p>
+                        <p><span>Thập niên 2000:</span> Mở ra một chương mới trong hành trình làm đẹp khi lần đầu
+                            tiên ra mắt dòng son dưỡng hiệu chỉnh sắc môi LipIce Sheer Color, mang đến sắc hồng tự
+                            nhiên đặc trưng của mỗi người.</p>
+                    </div>
+                    <div class="infor-right">
+                        <p><span>Thập niên 2010:</span> Đánh dấu xu hướng chăm dưỡng môi sử dụng thành phần từ
+                            thiên nhiên, gây ấn tượng với các mùi hương thơm ngon và bảng màu son đa dạng từ
+                            tự nhiên đến đậm sắc. Lip Pure - LipIce Sheer Color Q - LipIce Sheer Color Fruit Juice.
+                        </p>
+                        <p><span>Thập niên 2020:</span> Đánh dấu hành trình phát triển những sản phẩm chăm sóc môi
+                            chuyên biệt, kết hợp giữa kiến thức khoa học và sự am hiểu về cấu trúc làn môi cùng với công
+                            nghệ hiện đại mang đến giải pháp tối ưu cho những vấn đề về môi của các cô gái Việt. Medi
+                            Lip - Melty Cream Lip - serum dưỡng môi Lipstician.</p>
+                        <p><span>MENTHOLATUM LIPICE - SON DƯỠNG RIÊNG <br/> TRIỆU LÀN MÔI VIỆT </span></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div id="overlay">
+        <div id="modal">
+            <span id="closeButton">&times;</span>
+            <img id="image"/>
+            <button id="cropButton">Crop Image</button>
+        </div>
+    </div>
+
+    <div class="register-overlay" style="display: none" id="register-overlay">
+        <div class="register-modal">
+            <div class="register-logo">
+                <img src="./assets/img/logo.png" alt=""/>
+            </div>
+            <div class="loading-container">
+                <div class="progress-bar">
+                    <div class="progress"></div>
+                </div>
+                <div class="percentage">0%</div>
+            </div>
+            <form id="login-form">
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone-login" name="phone"/>
+                <div id="phoneError-login" class="error"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email-login" name="email"/>
+                <div id="emailError-login" class="error"></div>
+
+                <div class="login-btn-wrapper">
+                    <button type="submit">Submit</button>
+                </div>
+            </form>
+            <form id="register-form" style="display: none">
+                <label for="name">Họ và tên:</label>
+                <input type="text" id="name" name="name"/>
+                <div id="nameError" class="error"></div>
+
+                <label for="dob">Date of Birth:</label>
+                <input type="text" id="dob" name="dob"/>
+
+                <label for="phone">Phone:</label>
+                <input type="text" id="phone" name="phone"/>
+                <div id="phoneError" class="error"></div>
+
+                <label for="email">Email:</label>
+                <input type="email" id="email" name="email"/>
+                <div id="emailError" class="error"></div>
+
+                <div class="register-btn-wrapper">
+                    <button id="register_back-btn">Đăng nhập</button>
+                    <button type="submit" id="register-submit">Tiếp tục</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<script
+        type="text/javascript"
+        src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
+></script>
+<script src="./assets/libs/js/3d.js"></script>
+<script src="./assets/libs/js/lib.js"></script>
+</body>
+</html>
