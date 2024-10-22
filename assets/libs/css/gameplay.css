@@ -10,7 +10,7 @@
     padding: 15px;
     width: 70%;
     /*height: 85vh;*/
-    background-color: transparent;
+    background-color: rgba(255, 255, 255, 0.25);
     border: rgb(255, 255, 255) solid 2px;
     border-radius: 20px;
     z-index: 99;
@@ -44,6 +44,7 @@
     text-shadow: 2px 0 #fff, -2px 0 #fff, 0 2px #fff, 0 -2px #fff, 1px 1px #fff,
     -1px -1px #fff, 1px -1px #fff, -1px 1px #fff;
     margin-top: 1rem;
+    user-select: none;
 }
 
 #lipsticks-result {
@@ -64,7 +65,6 @@ textarea {
 }
 
 ::placeholder {
-    /* color: black; */
     font-size: 12px;
 }
 
@@ -177,8 +177,7 @@ textarea {
 
 .file-label {
     display: inline-block;
-    /* padding: 10px 15px; */
-    background-color: #4caf50;
+    background: colo;r: #4caf50;
     color: white;
     cursor: pointer;
     border-radius: 4px;

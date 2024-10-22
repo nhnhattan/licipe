@@ -140,7 +140,7 @@ function updateProgress(progress) {
 }
 
 loader.load(
-    "/assets/img/lipstick.glb",
+    "./assets/img/lipstick.glb",
     function (gltf) {
         const model = gltf.scene;
 
