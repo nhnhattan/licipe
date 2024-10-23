@@ -41,10 +41,27 @@ $(document).ready(function () {
                     video.play();
                 }
             }
+
+            switch (destination.index) {
+                case 0:
+                    changeImage("./assets/img/Creamy1.png","quick-control-left_img")
+                    changeImage("./assets/img/Creamy1.png","quick-control-right_img")
+                    break;
+                default:
+                    changeImage("./assets/img/lipstickminisize.png","quick-control-left_img")
+                    changeImage("./assets/img/lipstickminisize.png","quick-control-right_img")
+            }
         },
 
     });
     $.fn.fullpage.setAllowScrolling(true);
+
+    function changeImage(newSrc, oldSrc) {
+        var $image = $(`#${oldSrc}`);
+        $image.fadeOut(50, function() { 
+            $image.attr('src', newSrc).fadeIn(50);
+        });
+    }
 
     $("#logo-home").click(function () {
         fullpage_api.moveTo("banner", 0);
