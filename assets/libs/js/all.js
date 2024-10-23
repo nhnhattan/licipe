@@ -1,16 +1,5 @@
 $(document).ready(function () {
   localStorage.removeItem("update");
-  $("#menu-button").click(function () {
-    $(".overlay").toggleClass("active");
-  });
-
-  $(".btn-menu_close").click(function () {
-    $(".overlay").toggleClass("active");
-  });
-
-  $(".hidebar-item").click(function () {
-    $(".overlay").toggleClass("active");
-  });
 
   var $slides = $(".rules .wrapper");
   var slideWidth = $(".rules-slide").outerWidth();
@@ -418,4 +407,14 @@ $(document).ready(function () {
       $(this).find(".icon i").removeClass("fa-plus").addClass("fa-minus");
     }
   });
+
+  $("#vote-icons").click(function () {
+    if($(this).hasClass('fa-regular')) {
+      // Đổi thành 'fa-solid'
+      $(this).removeClass('fa-regular').addClass('fa-solid');
+    } else {
+      // Ngược lại đổi lại thành 'fa-regular'
+      $(this).removeClass('fa-solid').addClass('fa-regular');
+    }
+  })
 });

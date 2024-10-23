@@ -145,7 +145,7 @@ $(document).ready(function () {
         slidesToShow: 5, // Show 5 slides at a time
         slidesToScroll: 1, // Scroll one slide at a time
         centerMode: true, // Enable center mode
-        centerPadding: "0", // Padding around center slide
+        centerPadding: "1", // Padding around center slide
         arrows: true, // Enables navigation arrows
         autoplay: false, // Disable autoplay
         speed: 500,
