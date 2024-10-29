@@ -8,11 +8,7 @@
     />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LipIce - Kỷ niệm 135 năm</title>
-    <link
-      rel="icon"
-      type="image/x-icon"
-      href="./assets/img/logo-lipcipe.png"
-    />
+    <link rel="icon" type="image/x-icon" href="./assets/img/logo-lipcipe.png" />
     <!--    Jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -75,6 +71,7 @@
     <!--  Add File  -->
     <link rel="stylesheet" href="./assets/libs/css/all.css" />
     <link rel="stylesheet" href="./assets/libs/css/gameplay.css" />
+    <link rel="stylesheet" href="./assets/libs/css/responsive/responsive.css" />
     <script src="assets/libs/js/all.js"></script>
 
     <!-- Api -->
@@ -105,7 +102,35 @@
     />
   </head>
   <body>
-    
+    <div class="overlay">
+      <div class="hidebar-wrapper">
+        <div class="hidebar-header">
+          <p class="btn-menu_close">&#10006;</p>
+        </div>
+        <div class="hidebar-list">
+          <div class="hidebar-item">
+            <a data-menuanchor="rules" href="#2">GIẢI THƯỞNG & THỂ LỆ</a>
+          </div>
+          <div class="hidebar-item">
+            <a href="#3" data-menuanchor="instruction">HƯỚNG DẪN THAM GIA</a>
+          </div>
+          <div class="hidebar-item">
+            <a href="#4" data-menuanchor="gameplay">THAM GIA THIẾT KẾ</a>
+          </div>
+          <div class="hidebar-item">
+            <a href="#5" data-menuanchor="submissions">BÀI DỰ THI</a>
+          </div>
+          <div class="hidebar-item">
+            <a href="#6" data-menuanchor="banner">THÔNG TIN SẢN PHẨM</a>
+          </div>
+          <div class="hidebar-item">
+            <a href="#7" data-menuanchor="brand-story"
+              >CÂU CHUYỆN THƯƠNG HIỆU</a
+            >
+          </div>
+        </div>
+      </div>
+    </div>
     <div class="main" id="main">
       <div class="navbar-header">
         <div class="navbar-wrapper">
@@ -128,12 +153,19 @@
               <a href="#7">Câu chuyện</a>
             </li>
           </ul>
+          <div>
+            <button class="menu-button" id="menu-button">☰</button>
+          </div>
         </div>
       </div>
 
       <div class="quick-control-left" id="quick-control-left">
         <div class="control-top">
-          <img src="./assets/img/lipstickminisize.png" alt="" id="quick-control-left_img" />
+          <img
+            src="./assets/img/lipstickminisize.png"
+            alt=""
+            id="quick-control-left_img"
+          />
         </div>
         <div>
           <p>
@@ -144,7 +176,11 @@
       </div>
       <div class="quick-control-right" id="quick-control-right">
         <div class="control-top">
-          <img src="./assets/img/lipstickminisize.png" alt="" id="quick-control-right_img"/>
+          <img
+            src="./assets/img/lipstickminisize.png"
+            alt=""
+            id="quick-control-right_img"
+          />
         </div>
         <div>
           <p>Chơi ngay</p>
@@ -494,7 +530,7 @@
           <div class="instruction-wrapper">
             <div>
               <div class="content-top"><p>Hướng dẫn tham gia</p></div>
-              <video width="65%" height="auto" controls id="video-instruction">
+              <video controls id="video-instruction">
                 <source
                   src="./assets/video/12409852_2560_1440_30fps.mp4"
                   type="video/mp4"
@@ -640,7 +676,9 @@
                 </div>
                 <div class="vote-information">
                   <p>Name</p>
-                  <p><i class="fa-regular fa-heart" id="vote-icons"></i>  Vote</p>
+                  <p>
+                    <i class="fa-regular fa-heart" id="vote-icons"></i> Vote
+                  </p>
                 </div>
               </div>
               <div class="submission-slide">
@@ -700,44 +738,60 @@
             <div class="custom-prev"></div>
             <div class="custom-next"></div>
             <div class="slick-carousel">
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau/20-lipice-lip-pure">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/20-lipice-lip-pure"
+              >
                 <img src="./assets/img/LipPure1.png" alt="Lip pure" />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau/21-lipice-water-lip">
-                <img src="./assets/img/LipPureColor1.png" alt="Lip pure có màu" />
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/21-lipice-water-lip"
+              >
+                <img
+                  src="./assets/img/LipPureColor1.png"
+                  alt="Lip pure có màu"
+                />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau/22-melty-cream-lip-dong-son-nhap-khau-tu-nhat-ban">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/22-melty-cream-lip-dong-son-nhap-khau-tu-nhat-ban"
+              >
                 <img src="./assets/img/Lipmelty1.png" alt="Lip melty" />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau/34-medi-lip">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/34-medi-lip"
+              >
                 <img src="./assets/img/MediLip1.png" alt="Medilip" />
               </a>
               <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau">
                 <img src="./assets/img/Creamy1.png" alt="Licipe creamy" />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau#huong-tu-nhien">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau#huong-tu-nhien"
+              >
                 <img
                   src="./assets/img/LicipeSheerColor1.png"
                   alt="Licipe sheer color"
                 />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot"
+              >
                 <img
                   src="./assets/img/LicipeSheerColorQ1.png"
                   alt="Licipe sheer color q"
                 />
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot">
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot"
+              >
                 <img
                   src="./assets/img/LicipeFruitJuice1.png"
                   alt="Licipe fruit juice"
                 />
               </a>
-              <a href="https://lipice.com.vn/san-pham/lipstician/74-lipstician-lip-serum-protector">
-                <img
-                  src="./assets/img/Liptician2.png"
-                  alt="Lipstician"
-                />
+              <a
+                href="https://lipice.com.vn/san-pham/lipstician/74-lipstician-lip-serum-protector"
+              >
+                <img src="./assets/img/Liptician2.png" alt="Lipstician" />
               </a>
             </div>
           </div>

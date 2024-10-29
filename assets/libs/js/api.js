@@ -1,6 +1,6 @@
 // Login
-const apiUrl = "https://proxy.advietnam.vn";
-const url135Years = "http://135yearsmentholatum.lipice.com.vn/app/api/sql/Public_Return_Json"
+const apiUrl = "";
+const url135Years = ""
 
 var keywords = {
     Drug: [

@@ -10,10 +10,18 @@ $(document).ready(function () {
     if (currentIndex < slideCount - 1) {
       $(".rules-button_left").removeAttr("disabled");
       currentIndex++;
-      $slides.css(
-        "transform",
-        "translateX(-" + currentIndex * slideWidth * 1.26 + "px)"
-      );
+      if ($(window).width() <= 740) {
+        $slides.css(
+          "transform",
+          "translateX(-" + currentIndex * slideWidth * 1.2 + "px)"
+        );
+      } else {
+        $slides.css(
+          "transform",
+          "translateX(-" + currentIndex * slideWidth * 1.26 + "px)"
+        );
+      }
+
       if (currentIndex == 2) {
         $(".rules-button_right").attr("disabled", "disabled");
       } else if (currentIndex < 2) {
@@ -26,10 +34,18 @@ $(document).ready(function () {
     if (currentIndex > 0) {
       $(".rules-button_right").removeAttr("disabled");
       currentIndex--;
-      $slides.css(
-        "transform",
-        "translateX(-" + currentIndex * slideWidth * 1.26 + "px)"
-      );
+      if ($(window).width() <= 740) {
+        $slides.css(
+          "transform",
+          "translateX(-" + currentIndex * slideWidth * 1.2 + "px)"
+        );
+      } else {
+        $slides.css(
+          "transform",
+          "translateX(-" + currentIndex * slideWidth * 1.26 + "px)"
+        );
+      }
+
       if (currentIndex == 0) {
         $(".rules-button_left").attr("disabled", "disabled");
       } else {
@@ -409,12 +425,22 @@ $(document).ready(function () {
   });
 
   $("#vote-icons").click(function () {
-    if($(this).hasClass('fa-regular')) {
+    if ($(this).hasClass("fa-regular")) {
       // Đổi thành 'fa-solid'
-      $(this).removeClass('fa-regular').addClass('fa-solid');
+      $(this).removeClass("fa-regular").addClass("fa-solid");
     } else {
       // Ngược lại đổi lại thành 'fa-regular'
-      $(this).removeClass('fa-solid').addClass('fa-regular');
+      $(this).removeClass("fa-solid").addClass("fa-regular");
     }
-  })
+  });
+
+  $("#menu-button").click(function () {
+    $(".overlay").toggleClass("active");
+  });
+  $(".hidebar-item").click(function () {
+    $(".overlay").toggleClass("active");
+  });
+  $(".btn-menu_close").click(function () {
+    $(".overlay").toggleClass("active");
+  });
 });

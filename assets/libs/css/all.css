@@ -544,9 +544,8 @@ footer {
   color: white;
   font-size: 1.4rem;
   font-weight: 800;
-  text-transform: uppercase;
   margin-bottom: 0.8rem;
-  box-shadow: #000;
+  box-shadow: 4px 5px rgba(0, 0, 0, 0.05);
 }
 
 /* Instruction */
@@ -570,6 +569,8 @@ footer {
   margin-top: 1rem;
   border-radius: 20px;
   justify-self: center;
+  width: 65%;
+  height: auto;
 }
 
 .instruction-wrapper div {
@@ -916,7 +917,7 @@ footer {
 
 .section.submissions .art-footer-wrapper {
   position: absolute;
-  background-image: url("../../img/footer.png");
+  /* background-image: url("../../img/footer.png"); */
   bottom: 0;
   background-size: 100% 100%;
   background-repeat: no-repeat;
