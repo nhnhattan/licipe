@@ -301,7 +301,7 @@ loader.load(
         $("#lipstick-username").text(" ");
       } else {
         $("#lipstick-username").text(
-          getArrayFromCookies("loginCookies").Objects[0].UserId
+          getArrayFromCookies("loginCookies").Objects[0].UserName
         );
       }
 

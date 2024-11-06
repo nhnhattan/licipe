@@ -310,13 +310,16 @@ $(document).ready(function () {
     // Cập nhật số từ
     if (text === "") {
       $("#resultMobile").text("Không được để trống");
+      $("#create-image-ai_mobile").attr("disabled", "disabled");
       checkText = false;
     } else if (text.length < 2) {
       $("#resultMobile").text("Phải nhập ít nhất 6 từ");
+      $("#create-image-ai_mobile").attr("disabled", "disabled");
       checkText = false;
     } else {
       if (wordCount < 6) {
         $("#resultMobile").text("Phải nhập ít nhất 6 từ");
+        $("#create-image-ai_mobile").attr("disabled", "disabled");
         checkText = false;
       } else if (wordCount >= 6) {
         var inputText = $(this).val();
@@ -340,14 +343,17 @@ $(document).ready(function () {
             // + wordsWithoutAccent.join(", ")
           );
           checkText = false;
+          $("#create-image-ai_mobile").attr("disabled", "disabled");
         } else if (textTrim.length < previousLength) {
           $("#resultMobile").text(
             ""
             // + wordsWithoutAccent.join(", ")
           );
           checkText = false;
+          $("#create-image-ai_mobile").attr("disabled", "disabled");
         } else {
           $("#resultMobile").text("Từ hợp lệ");
+          $("#create-image-ai_mobile").removeAttr("disabled");
           checkText = true;
         }
         previousLength = currentLength;
@@ -468,7 +474,6 @@ $(document).ready(function () {
           contentType: false,
           data: formValue,
           success: function (data, textStatus, xhr) {
-            console.log(data);
             const authorize = JSON.parse(data);
             let bearerToken = authorize.Objects[0].UserAiTokenValue;
             setArrayToCookies("bearerToken", bearerToken);
@@ -493,7 +498,6 @@ $(document).ready(function () {
               },
               data: formTranslate,
               success: function (data, textStatus, xhr) {
-                console.log(data);
                 // Check banned words in translation
                 if (checkForBannedWords(JSON.parse(data).Result)) {
                   formImage.append("Procedure", "Ai_TokenCheck");
@@ -523,7 +527,6 @@ $(document).ready(function () {
                     },
                     data: formImage,
                     success: function (data, textStatus, xhr) {
-                      console.log(data);
                       $("#form1 .loading-container").hide();
                       const imageData = JSON.parse(data);
                       setTimeout(function () {
@@ -593,70 +596,71 @@ $(document).ready(function () {
   });
 
   $("#upload-image-mobile").click(function () {
-    // if (!croppedBlob) {
-    //   Toastify({
-    //     text: "Vui lòng chọn ảnh để tạo!",
-    //     duration: 2000,
-    //     close: true,
-    //     gravity: "top",
-    //     position: "center",
-    //     stopOnFocus: true,
-    //     style: {
-    //       background: "red",
-    //     },
-    //   }).showToast();
-    //   return;
-    // } else {
-    //   $("#form3 .loading-container img").show();
-    //   $("#form3 .loading-container").show();
-    //   $(".form3-wrapper").hide();
-    //   $(".avatar-ai-img").attr("src", "");
-    //   var formAvatar = new FormData();
-    //   formAvatar.append("Procedure", "Ai_TokenCheck");
-    //   formAvatar.append(
-    //     "Parameters",
-    //     JSON.stringify({
-    //       UserId: getArrayFromCookies("loginCookies").Objects[0].UserId,
-    //       UserAiTokenValue: getArrayFromCookies("bearerToken"),
-    //     })
-    //   );
-    //   formAvatar.append("ProcedureCallback", "Ai_TokenCallBack");
-    //   formAvatar.append("Image", croppedBlob);
-    //   formAvatar.append("Prompt", "The face on center image");
-    //   formAvatar.append("Style", "anime");
-    //   $.ajax({
-    //     url: `${apiUrl}/ai-generate/image-to-image`,
-    //     type: "POST",
-    //     data: formAvatar,
-    //     processData: false,
-    //     contentType: false,
-    //     beforeSend: function (xhr) {
-    //       xhr.setRequestHeader(
-    //         "Authorization",
-    //         `Bearer ${getArrayFromCookies("bearerToken")}`
-    //       );
-    //     },
-    //     success: function (data, textStatus, xhr) {
-    //       const imageData = JSON.parse(data);
-    //       setTimeout(function () {
-    //         $("#form3 .loading-container img").hide();
-    //         $("#form3 .loading-container").hide();
-    //         $(".avatar-ai-img").attr(
-    //           "src",
-    //           `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
-    //         );
-    //         $(".avatar-ai-img").show();
-    $("#upload-image-mobile").css("bottom", "3%");
-    currentStep++;
-    updateStep();
-    //         $(".form3-wrapper").show();
-    //       }, 500);
-    //     },
-    //     error: function (jqXHR, textStatus, errorThrown) {
-    //       alert("Image upload failed: " + textStatus);
-    //     },
-    //   });
-    // }
+    if (!croppedBlob) {
+      Toastify({
+        text: "Vui lòng chọn ảnh để tạo!",
+        duration: 2000,
+        close: true,
+        gravity: "top",
+        position: "center",
+        stopOnFocus: true,
+        style: {
+          background: "red",
+        },
+      }).showToast();
+      return;
+    } else {
+      $("#form3 .loading-container img").show();
+      $("#form3 .loading-container").show();
+      $(".form3-wrapper").hide();
+      $(".avatar-ai-img").attr("src", "");
+      var formAvatar = new FormData();
+      formAvatar.append("Procedure", "Ai_TokenCheck");
+      formAvatar.append(
+        "Parameters",
+        JSON.stringify({
+          UserId: getArrayFromCookies("loginCookies").Objects[0].UserId,
+          UserAiTokenValue: getArrayFromCookies("bearerToken"),
+        })
+      );
+      formAvatar.append("ProcedureCallback", "Ai_TokenCallBack");
+      formAvatar.append("Image", croppedBlob);
+      formAvatar.append("Prompt", "The face on center image");
+      formAvatar.append("Style", "anime");
+      $.ajax({
+        url: `${apiUrl}/ai-generate/image-to-image`,
+        type: "POST",
+        data: formAvatar,
+        processData: false,
+        contentType: false,
+        beforeSend: function (xhr) {
+          xhr.setRequestHeader(
+            "Authorization",
+            `Bearer ${getArrayFromCookies("bearerToken")}`
+          );
+        },
+        success: function (data, textStatus, xhr) {
+          const imageData = JSON.parse(data);
+          setTimeout(function () {
+            $("#form3 .loading-container img").hide();
+            $("#form3 .loading-container").hide();
+            $(".avatar-ai-img").attr(
+              "src",
+              `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
+            );
+            $(".avatar-ai-img").show();
+            $("#upload-image-mobile").css("bottom", "3.1%");
+            $("#create-lipstick-mobile").css("bottom", "3.6%")
+            currentStep++;
+            updateStep();
+            $(".form3-wrapper").show();
+          }, 500);
+        },
+        error: function (jqXHR, textStatus, errorThrown) {
+          alert("Image upload failed: " + textStatus);
+        },
+      });
+    }
   });
 
   $("#create-lipstick-mobile").click(function () {
@@ -670,47 +674,50 @@ $(document).ready(function () {
 
   $("#reset-mobile").click(function () {
     $(".reset-overlay").show();
-    $("#reset-yes-btn").click(function () {
-      if (resetCount < maxHistory) {
-        $("#keyword-box-mobile").val("");
-        $("#result").text("");
-        $(".image-ai-img").hide();
-        $(".image-ai-img").attr("src", "");
-        $("#croppedImageMobile").attr("src", "");
-        $("#uploadImage").val("");
-        $("#removeImageButton").hide();
-        $("#openModalButton").hide();
-        $("#file-name").text("No file chosen");
-        $(".avatar-ai-img").css("display", "none");
-        $(".avatar-ai-img").attr("src", "");
-        $(".file-upload-label").show();
-        $("#create-image-ai").attr("disabled", "disabled");
-        $("#create-image-ai_mobile").attr("disabled", "disabled");
-        $("#download-img-mobile").hide();
-        $("#create-lipstick-mobile").show();
-        $("#register-form").hide();
-        $("#register-overlay .loading-container").hide();
-        $("#register-overlay .loading-container img").hide();
-        $("#create-lipstick-mobile").css("bottom", "6.3%");
-        $("#upload-image-mobile").css("bottom", "5%");
-        localStorage.removeItem("update");
-        Texture_Label_Update("./assets/img/original.png");
-        Texture_Avatar_Update("./assets/img/original.png");
-        resetCount++;
-        $("#reset-btn").text(`Hoàn tác (${resetCount}/3)`);
-        if (resetCount >= maxHistory) {
-          $(this).prop("disabled", true);
-          $("#reset-btn").attr("disabled", "disabled");
-          $("#reset-btn").attr("noHover");
-          $("#create-image-ai").click(function () {
-            return false;
-          });
-        }
-        $(".reset-overlay").hide();
+  });
+
+  $("#reset-yes-btn").click(function () {
+    if (resetCount < maxHistory) {
+      $("#download-img-mobile").show();
+      $(".step-one_content").show();
+      $("#keyword-box-mobile").val("");
+      $("#result").text("");
+      $(".image-ai-img").hide();
+      $(".image-ai-img").attr("src", "");
+      $("#croppedImageMobile").attr("src", "");
+      $("#uploadImage").val("");
+      $("#removeImageButton").hide();
+      $("#openModalButton").hide();
+      $("#file-name").text("No file chosen");
+      $(".avatar-ai-img").css("display", "none");
+      $(".avatar-ai-img").attr("src", "");
+      $(".file-upload-label").show();
+      $("#create-image-ai").attr("disabled", "disabled");
+      $("#create-image-ai_mobile").attr("disabled", "disabled");
+      $("#create-lipstick-mobile").show();
+      $("#register-form").hide();
+      $("#register-overlay .loading-container").hide();
+      $("#register-overlay .loading-container img").hide();
+      $("#create-lipstick-mobile").css("bottom", "6.3%");
+      $("#create-lipstick-mobile").removeAttr("disabled");
+      $("#upload-image-mobile").css("bottom", "5%");
+      localStorage.removeItem("update");
+      Texture_Label_Update("./assets/img/original.png");
+      Texture_Avatar_Update("./assets/img/original.png");
+      resetCount++;
+      $("#reset-btn").text(`Hoàn tác (${resetCount}/3)`);
+      if (resetCount >= maxHistory) {
+        $(this).prop("disabled", true);
+        $("#reset-btn").attr("disabled", "disabled");
+        $("#reset-btn").attr("noHover");
+        $("#create-image-ai").click(function () {
+          return false;
+        });
       }
-      currentStep = 0;
-      updateStep();
-    });
+      $(".reset-overlay").hide();
+    }
+    currentStep = 0;
+    updateStep();
   });
 
   function stepOneFunction() {
@@ -729,30 +736,30 @@ $(document).ready(function () {
     return true;
   }
 
-  // function checkStepButton() {
-  //   switch (currentStep) {
-  //     case 0:
-  //       $prevBtn.hide();
-  //       $nextBtn.hide();
-  //       break;
-  //     case 1:
-  //       $nextBtn.show();
-  //       $prevBtn.show();
-  //       break;
-  //     case 2:
-  //       $nextBtn.show();
-  //       break;
-  //     case 3:
-  //       $nextBtn.hide();
-  //       break;
-  //     case 4:
-  //       $prevBtn.hide();
-  //       $nextBtn.hide();
-  //       break;
-  //     default:
-  //       break;
-  //   }
-  // }
+  function checkStepButton() {
+    switch (currentStep) {
+      case 0:
+        $prevBtn.hide();
+        $nextBtn.hide();
+        break;
+      case 1:
+        $nextBtn.show();
+        $prevBtn.show();
+        break;
+      case 2:
+        $nextBtn.show();
+        break;
+      case 3:
+        $nextBtn.hide();
+        break;
+      case 4:
+        $prevBtn.hide();
+        $nextBtn.hide();
+        break;
+      default:
+        break;
+    }
+  }
 
   function callStepFunction() {
     switch (currentStep) {

@@ -209,18 +209,20 @@ $(document).ready(function () {
   });
 
   $("#reset-yes-btn").click(function () {
-    $croppedImage.attr("src", "");
-    $croppedImageMobile.attr("src", "");
-    $croppedContainer.hide();
-    $openModalButton.hide();
-    $openModalButtonMobile.hide();
-    $inputImage.val("");
-    cropper.destroy();
-    $removeImageButtonMobile.hide();
-    $("#file-name").text("No file chosen");
-    $("#file-name-mobile").text("No file chosen");
-    $(".file-upload-label").show();
-    $("#upload-image-mobile").css("bottom", "5%");
+    if (croppedBlob) {
+      $croppedImage.attr("src", "");
+      $croppedImageMobile.attr("src", "");
+      $croppedContainer.hide();
+      $openModalButton.hide();
+      $openModalButtonMobile.hide();
+      $inputImage.val("");
+      cropper.destroy();
+      $removeImageButtonMobile.hide();
+      $("#file-name").text("No file chosen");
+      $("#file-name-mobile").text("No file chosen");
+      $(".file-upload-label").show();
+      $("#upload-image-mobile").css("bottom", "5%");
+    } else return;
   });
 
   let formValue = new FormData();
