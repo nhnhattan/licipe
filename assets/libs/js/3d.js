@@ -247,33 +247,35 @@ loader.load(
       Texture_Avatar_Update($(".avatar-ai-img").attr("src"));
       $("#create-lipstick").hide();
       $("#download-lipstick").show();
-      $("#download-lipstick").click(function () {
-        angle = 0; // Reset angle if needed
-        model.rotation.y = angle; // Reset rotation
+    });
 
-        // Temporarily adjust renderer size for higher resolution capture
-        var originalSize = {
-          width: renderer.domElement.width,
-          height: renderer.domElement.height,
-        };
-        var captureWidth = window.innerWidth; // Adjust the width as needed
-        var captureHeight = window.innerHeight;
-        renderer.setSize(captureWidth, captureHeight); // Increase the resolution
+    $("#download-lipstick").click(function () {
+      console.log("download");
+      angle = 0; // Reset angle if needed
+      model.rotation.y = angle; // Reset rotation
 
-        // Render and capture the front view
-        renderer.render(scene, frontViewCamera);
-        renderer.setClearColor(0x000000, 0); // Ensure background is transparent (alpha: 0)
-        // model.scale.set(0.5, 0.5, 0.5);
+      // Temporarily adjust renderer size for higher resolution capture
+      var originalSize = {
+        width: renderer.domElement.width,
+        height: renderer.domElement.height,
+      };
+      var captureWidth = window.innerWidth; // Adjust the width as needed
+      var captureHeight = window.innerHeight;
+      renderer.setSize(captureWidth, captureHeight); // Increase the resolution
 
-        // Capture the image from the front view
-        $("#lipstick-username").text(localStorage.getItem("userName"));
-        $(".section.gameplay .modal-result").css("display", "flex");
-        var imgData = renderer.domElement.toDataURL("image/png");
-        $("#capturedImage").attr("src", imgData).show();
+      // Render and capture the front view
+      renderer.render(scene, frontViewCamera);
+      renderer.setClearColor(0x000000, 0); // Ensure background is transparent (alpha: 0)
+      // model.scale.set(0.5, 0.5, 0.5);
 
-        // Restore original renderer size
-        renderer.setSize(originalSize.width, originalSize.height);
-      });
+      // Capture the image from the front view
+      $("#lipstick-username").text(localStorage.getItem("userName"));
+      $(".section.gameplay .modal-result").css("display", "flex");
+      var imgData = renderer.domElement.toDataURL("image/png");
+      $("#capturedImage").attr("src", imgData).show();
+
+      // Restore original renderer size
+      renderer.setSize(originalSize.width, originalSize.height);
     });
 
     $("#download-img-mobile").click(function () {
@@ -295,11 +297,18 @@ loader.load(
       // model.scale.set(0.5, 0.5, 0.5);
 
       // Capture the image from the front view
-      $("#lipstick-username").text(getArrayFromCookies("loginCookies").Objects[0].UserName);
+      if (!getArrayFromCookies("loginCookies")) {
+        $("#lipstick-username").text(" ");
+      } else {
+        $("#lipstick-username").text(
+          getArrayFromCookies("loginCookies").Objects[0].UserId
+        );
+      }
+
       $(".section.gameplay .modal-result").css("display", "flex");
       var imgData = renderer.domElement.toDataURL("image/png");
       $("#capturedImage").attr("src", imgData).show();
-// 
+      //
       // Restore original renderer size
       renderer.setSize(originalSize.width, originalSize.height);
     });
