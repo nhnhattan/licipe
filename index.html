@@ -59,7 +59,7 @@
       href="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.css"
     />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/cropperjs/1.5.12/cropper.min.js"></script>
-    <script src="./assets/libs/js/cropper.js"></script>
+    <script type="module" src="./assets/libs/js/cropper.js"></script>
 
     <!-- Add the slick-theme.css if you want default styling -->
     <link
@@ -72,6 +72,10 @@
     <link rel="stylesheet" href="./assets/libs/css/all.css" />
     <link rel="stylesheet" href="./assets/libs/css/gameplay.css" />
     <link rel="stylesheet" href="./assets/libs/css/responsive/responsive.css" />
+    <link
+      rel="stylesheet"
+      href="./assets/libs/css/responsive/gameplay-responsive.css"
+    />
     <script src="assets/libs/js/all.js"></script>
 
     <!-- Api -->
@@ -159,7 +163,7 @@
         </div>
       </div>
 
-      <div class="quick-control-left" id="quick-control-left">
+      <!-- <div class="quick-control-left" id="quick-control-left">
         <div class="control-top">
           <img
             src="./assets/img/lipstickminisize.png"
@@ -185,7 +189,7 @@
         <div>
           <p>Chơi ngay</p>
         </div>
-      </div>
+      </div> -->
       <div class="scroll-down" id="scroll-down">
         <p class="scroll-down_text">Scroll Down ⟶</p>
       </div>
@@ -386,21 +390,9 @@
                           </p>
                         </div>
                       </div>
-
-                      <!-- Column 3 -->
-                      <!-- <div class="col-md-4">
-                        <button class="collapsible">Bước 4 <span class="icon"><i class="fas fa-plus"></i></span></button>
-                        <div class="content">
-                          <p>
-                            
-                          </p>
-                        </div>
-                      </div> -->
                     </div>
 
-                    <!-- Second Row for more collapsible sections (if needed) -->
                     <div class="row mt-4">
-                      <!-- Column 4 -->
                       <div class="col-md-6">
                         <button class="collapsible">
                           Thời gian tham gia
@@ -564,10 +556,7 @@
                   <div class="image-ai">
                     <img src="" alt="" class="image-ai-img" />
                     <div class="loading-container">
-                      <div class="progress-bar">
-                        <div class="progress"></div>
-                      </div>
-                      <div class="percentage">0%</div>
+                      <img src="./assets/img/loading.gif" alt="" />
                     </div>
                   </div>
                   <button id="create-image-ai" disabled>Tạo hình nền</button>
@@ -607,10 +596,7 @@
                   <div class="avatar-ai">
                     <img src="" alt="" class="avatar-ai-img" />
                     <div class="loading-container">
-                      <div class="progress-bar">
-                        <div class="progress"></div>
-                      </div>
-                      <div class="percentage">0%</div>
+                      <img src="./assets/img/loading.gif" alt="" />
                     </div>
                   </div>
                   <button id="uploadImageButton">Tạo Logo</button>
@@ -632,6 +618,136 @@
             >
               <p>Tạo nhãn son Licipe độc bản</p>
               <div id="lipsticks-result" style="height: 75%; width: 75%"></div>
+            </div>
+          </div>
+
+          <div class="gameplay-wrapper_mobile">
+            <div class="modal-gameplay" id="stepModal">
+              <div class="modal-gameplay_content">
+                <div class="gameplay-progress">
+                  <div class="gameplay-circle active" data-step="0">1</div>
+                  <div class="gameplay-line"></div>
+                  <div class="gameplay-circle" data-step="1">2</div>
+                  <div class="gameplay-line"></div>
+                  <div class="gameplay-circle" data-step="2">3</div>
+                  <div class="gameplay-line"></div>
+                  <div class="gameplay-circle" data-step="3">4</div>
+                  <div class="gameplay-line"></div>
+                  <div class="gameplay-circle" data-step="4">5</div>
+                </div>
+                <div class="step-title" id="stepTitle"></div>
+                <div class="step-description" id="stepDescription">
+                  Welcome to the first step!
+                </div>
+                <div id="stepForms">
+                  <div class="step-form" id="form1">
+                    <div class="step-one_content">
+                      <textarea
+                        name=""
+                        id="keyword-box-mobile"
+                        placeholder="Nhập nội dung hình nền..."
+                      ></textarea>
+                      <p id="resultMobile" style="color: red;"></p>
+                      <button id="create-image-ai_mobile">Tạo hình nền</button>
+                    </div>
+                    <div class="loading-container">
+                      <img src="./assets/img/loading.gif" alt="" />
+                    </div>
+                  </div>
+                  <div class="step-form" id="form2" style="display: none">
+                    <div class="image-ai-wrapper">
+                      <div class="image-ai">
+                        <img
+                          src=""
+                          alt=""
+                          class="image-ai-img"
+                          style="display: block;"
+                          width="90%"
+                        />
+                        <div class="loading-container">
+                          <img src="./assets/img/loading.gif" alt="" />
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="step-form" id="form3" style="display: none">
+                    <div class="form3-wrapper">
+                      <div class="image-ai-wrapper">
+                        <div class="croppedContainer">
+                          <img
+                            id="croppedImageMobile"
+                            src=""
+                            style="max-width: 60%;"
+                          />
+                          <div
+                            class="removeImageButton"
+                            id="removeImageButtonMobile"
+                            style="right: 17%;"
+                          >
+                            X
+                          </div>
+                        </div>
+
+                        <div class="file-upload-container">
+                          <button
+                            id="openModalButtonMobile"
+                            style="display:none;"
+                          >
+                            Crop Again
+                          </button>
+                          <div>
+                            <input
+                              type="file"
+                              id="uploadImage"
+                              accept="image/*"
+                              class="file-upload"
+                            />
+                            <label for="uploadImage" class="file-upload-label"
+                              >Upload</label
+                            >
+                            <div id="file-name-mobile">No file chosen</div>
+                          </div>
+                          <button id="upload-image-mobile">Next</button>
+                        </div>
+                      </div>
+                    </div>
+                    <div class="loading-container">
+                      <img src="./assets/img/loading.gif" alt="" />
+                    </div>
+                  </div>
+                  <div class="step-form" id="form4" style="display: none">
+                    <div class="image-ai-wrapper">
+                      <div class="avatar-ai">
+                        <img
+                          src=""
+                          alt=""
+                          class="avatar-ai-img"
+                          style="display: block;width: 90%;"
+                        />
+                      </div>
+                    </div>
+                    <button id="create-lipstick-mobile">Tạo cây son</button>
+                  </div>
+                  <div class="step-form" id="form5" style="display: none">
+                    <div
+                      id="lipsticks-result-mobile"
+                      style="height: 30vh; width: 100%"
+                    ></div>
+                    <div class="button-form5_wrapper">
+                      <button id="reset-mobile">Hoàn tác</button>
+                      <button id="download-img-mobile">Tải ảnh</button>
+                    </div>
+                    <div></div>
+                  </div>
+                </div>
+                <div class="error-message" id="errorMessage"></div>
+                <div class="buttons">
+                  <button class="prev-btn" id="stepPrevBtn" disabled>
+                    Previous
+                  </button>
+                  <button class="next-btn" id="stepNextBtn">Next</button>
+                </div>
+              </div>
             </div>
           </div>
           <div class="modal-result" id="modal-result">
@@ -858,16 +974,23 @@
         </div>
       </div>
 
+      <div class="reset-overlay" style="display: none">
+        <div class="reset-modal">
+          <p>Bạn có chắc chắn muốn hoàn tác?</p>
+          <div class="reset-btn-wrapper">
+            <button id="reset-no-btn">No</button>
+            <button id="reset-yes-btn">Yes</button>
+          </div>
+        </div>
+      </div>
+
       <div class="register-overlay" style="display: none" id="register-overlay">
         <div class="register-modal">
           <div class="register-logo">
             <img src="./assets/img/logo.png" alt="" />
           </div>
           <div class="loading-container">
-            <div class="progress-bar">
-              <div class="progress"></div>
-            </div>
-            <div class="percentage">0%</div>
+            <img src="./assets/img/loading.gif" alt="" />
           </div>
           <form id="login-form">
             <label for="phone">Phone:</label>
@@ -887,10 +1010,10 @@
             <input type="text" id="name" name="name" />
             <div id="nameError" class="error"></div>
 
-            <label for="dob">Date of Birth:</label>
+            <label for="dob">Năm sinh:</label>
             <input type="text" id="dob" name="dob" />
 
-            <label for="phone">Phone:</label>
+            <label for="phone">Só điện thoại:</label>
             <input type="text" id="phone" name="phone" />
             <div id="phoneError" class="error"></div>
 
@@ -912,6 +1035,9 @@
       src="https://cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.min.js"
     ></script>
     <script src="./assets/libs/js/3d.js"></script>
+    <!-- <script src="./assets/libs/js/3d_Mobile.js"></script> -->
     <script src="./assets/libs/js/lib.js"></script>
+    <script src="./assets/libs/js/gameplay.js" type="module"></script>
+    <!-- <script src="./assets/libs/js/apiMobile.js"></script> -->
   </body>
 </html>

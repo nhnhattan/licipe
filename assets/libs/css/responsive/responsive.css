@@ -161,10 +161,6 @@
     font-size: 1.6rem;
   }
 
-  .section.gameplay .gameplay-wrapper {
-    display: none;
-  }
-
   .section.submissions .submission-wrapper {
     width: 90%;
     padding: 0.5rem 3rem 0 3rem;

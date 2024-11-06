@@ -382,7 +382,7 @@ footer {
 }
 
 .rule-slide-inner .content-top {
-  background-color: #fdbdff;
+  background-image: linear-gradient(to left, #ff7eea, #ff9ef4, #fec0ff);
   box-shadow: -1px 6px 10px rgb(251, 139, 255);
   width: 80%;
   height: 12%;
@@ -582,7 +582,7 @@ footer {
 }
 
 .instruction-wrapper div .content-top {
-  background-color: #fdbdff;
+  background-image: linear-gradient(to left, #ff7eea, #ff9ef4, #fec0ff);
   width: 70%;
   max-height: 10%;
   padding: 1.4rem;
@@ -717,7 +717,7 @@ footer {
     rgba(255, 255, 255, 0.1) 0px 16px 48px;
   pointer-events: none;
   background-color: rgba(255, 255, 255, 0.5);
-} 
+}
 
 .information-wrapper .slick-carousel .slick-slide img {
   position: absolute;
@@ -1120,3 +1120,4 @@ button[disabled] {
     opacity: 0;
   }
 }
+

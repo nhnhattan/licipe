@@ -443,4 +443,14 @@ $(document).ready(function () {
   $(".btn-menu_close").click(function () {
     $(".overlay").toggleClass("active");
   });
+
+  $("#reset-no-btn").click(function () {
+    $(".reset-overlay").hide()
+  })
+
+  $(window).click(function (event) {
+    if ($(event.target).is(".reset-overlay")) {
+      $(".reset-overlay").hide()
+    }
+  });
 });

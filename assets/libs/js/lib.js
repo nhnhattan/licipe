@@ -42,31 +42,27 @@ $(document).ready(function () {
         }
       }
 
-      switch (destination.index) {
-        case 0:
-          changeImage("./assets/img/Creamy1.png", "quick-control-left_img");
-          changeImage("./assets/img/Creamy1.png", "quick-control-right_img");
-          break;
-        default:
-          changeImage(
-            "./assets/img/lipstickminisize.png",
-            "quick-control-left_img"
-          );
-          changeImage(
-            "./assets/img/lipstickminisize.png",
-            "quick-control-right_img"
-          );
-      }
+      // switch (destination.index) {
+      //   case 0:
+      //     // changeImage("./assets/img/Creamy1.png", "quick-control-left_img");
+      //     // changeImage("./assets/img/Creamy1.png", "quick-control-right_img");
+      //     break;
+      //   default:
+      //     // changeImage(
+      //     //   "./assets/img/lipstickminisize.png",
+      //     //   "quick-control-left_img"
+      //     // );
+      //     // changeImage(
+      //     //   "./assets/img/lipstickminisize.png",
+      //     //   "quick-control-right_img"
+      //     // );
+      //     $("#quick-control-left").show()
+      //     $("#quick-control-right").show()
+      // }
     },
+    
   });
   $.fn.fullpage.setAllowScrolling(true);
-
-  function changeImage(newSrc, oldSrc) {
-    var $image = $(`#${oldSrc}`);
-    $image.fadeOut(50, function () {
-      $image.attr("src", newSrc).fadeIn(50);
-    });
-  }
 
   $("#logo-home").click(function () {
     fullpage_api.moveTo("banner", 0);
@@ -178,14 +174,14 @@ $(document).ready(function () {
     autoplay: false, // Disable autoplay
     speed: 500,
     responsive: [
-        {
-          breakpoint: 768, // Mobile screen breakpoint
-          settings: {
-            slidesToShow: 1, // Show 1 slide on screens <= 768px
-            slidesToScroll: 1,
-          },
+      {
+        breakpoint: 768, // Mobile screen breakpoint
+        settings: {
+          slidesToShow: 1, // Show 1 slide on screens <= 768px
+          slidesToScroll: 1,
         },
-      ],
+      },
+    ],
   });
 
   $(".custom-pagination div").on("click", function () {
