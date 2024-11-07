@@ -306,62 +306,15 @@ $(document).ready(function () {
     ],
   };
 
-  // $("#keyword-box").on("input", function () {
-  //   // Get the value from the textarea
-  //   var text = $(this).val().toLowerCase();
-  //
-  //   // Array to store found keywords
-  //   var foundKeywords = [];
-  //   $("#keyword-box").css({border: "1px solid black !important" });
-  //
-  //   // Iterate through the keyword object
-  //   $("#keyword-box").on("input", function () {
-  //     // Get the current value from the textarea
-  //     var text = $(this).val().toLowerCase();
-  //
-  //     // Array to store found keywords
-  //     var foundKeywords = [];
-  //
-  //     // Iterate through the keyword object
-  //     $.each(keywords, function (group, words) {
-  //       // Iterate through each array of keywords
-  //       for (var i = 0; i < words.length; i++) {
-  //         if (
-  //           text.includes(words[i]) &&
-  //           !foundKeywords.includes(words[i])
-  //         ) {
-  //           foundKeywords.push(`(${words[i]})`); // Add found keyword to array
-  //         } else if (
-  //           !text.includes(words[i]) &&
-  //           foundKeywords.includes(words[i])
-  //         ) {
-  //           // Remove the keyword from the array if it has been deleted
-  //           foundKeywords = foundKeywords.filter(function (keyword) {
-  //             return keyword !== words[i];
-  //           });
-  //         }
-  //       }
-  //     });
-  //
-  //     // Update the result based on whether any keywords were found
-  //     if (foundKeywords.length > 0) {
-  //       $("#result").html("Keywords found: " + foundKeywords.join(", ")).show();
-  //       $("#create-image-ai").attr("disabled", true);
-  //     } else {
-  //       $("#result").hide();
-  //       $("#create-image-ai").removeAttr("disabled");
-  //     }
-  //   });
-  // });
-
   $("#download-img").on("click", function () {
     var $div = $("#finish-img-wrapper");
     var originalBorder = $div.css("border");
+    // $div.removeAttr("background-color");
     $div.css("border", "none");
     // Capture the div
+
     html2canvas(document.getElementById("finish-img-wrapper"), {
       scale: 5, // Increase the scale for higher resolution (2x, can be 3x or more if needed)
-      backgroundColor: null,
     }).then(function (canvas) {
       $div.css("border", originalBorder);
       var imgData = canvas.toDataURL("image/png");
@@ -373,6 +326,7 @@ $(document).ready(function () {
       document.body.appendChild(link);
       link.click();
       document.body.removeChild(link);
+      $div.css("border", originalBorder);
     });
   });
 
@@ -434,23 +388,37 @@ $(document).ready(function () {
     }
   });
 
-  $("#menu-button").click(function () {
-    $(".overlay").toggleClass("active");
+  $("#menu-button").click(async function () {
+    await $(".overlay").toggleClass("active");
+    var hidebar = $(".hidebar-item");
+    for (var i = 0; i < hidebar.length; i++) {
+      await animateDiv($(hidebar[i]), 1, 200);
+    }
   });
+
   $(".hidebar-item").click(function () {
     $(".overlay").toggleClass("active");
   });
-  $(".btn-menu_close").click(function () {
+
+  $(".btn-menu_close").click(async function () {
     $(".overlay").toggleClass("active");
   });
 
   $("#reset-no-btn").click(function () {
-    $(".reset-overlay").hide()
-  })
+    $(".reset-overlay").hide();
+  });
 
   $(window).click(function (event) {
     if ($(event.target).is(".reset-overlay")) {
-      $(".reset-overlay").hide()
+      $(".reset-overlay").hide();
     }
   });
+
+  function animateDiv(element, opacity, duration) {
+    return new Promise((resolve) => {
+      element.animate({ opacity: opacity }, duration, function () {
+        resolve();
+      });
+    });
+  }
 });

@@ -9,6 +9,10 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>LipIce - Kỷ niệm 135 năm</title>
     <link rel="icon" type="image/x-icon" href="./assets/img/logo-lipcipe.png" />
+    <meta
+      http-equiv="Content-Security-Policy"
+      content="upgrade-insecure-requests"
+    />
     <!--    Jquery  -->
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
 
@@ -82,8 +86,8 @@
     <script src="./assets/libs/js/api.js"></script>
 
     <!-- 3d -->
-    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/build/three.min.js "></script>
-    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/controls/OrbitControls.js "></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/build/three.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/controls/OrbitControls.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/three@0.139.2/examples/js/loaders/GLTFLoader.js "></script>
 
     <!-- Font Awesome for Icons -->
@@ -95,13 +99,7 @@
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&display=swap"
-      rel="stylesheet"
-    />
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Nunito:wght@200..1000&family=Roboto+Mono:ital,wght@0,100..700;1,100..700&display=swap"
+      href="https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap"
       rel="stylesheet"
     />
   </head>
@@ -160,6 +158,9 @@
           <div>
             <button class="menu-button" id="menu-button">☰</button>
           </div>
+          <div class="logo-navbar-135">
+            <img src="./assets/img/logo-135.png" alt="" />
+          </div>
         </div>
       </div>
 
@@ -215,7 +216,21 @@
       </div>
 
       <div id="fullpage">
-        <div class="section banner" data-menuanchor="banner">Banner</div>
+        <div class="section banner" data-menuanchor="banner">
+          <video
+            src="./assets/video/banner.mp4"
+            autoplay
+            muted
+            loop
+            id="video-banner"
+          ></video>
+          <div class="content-banner">
+            <img src="./assets/img/chạm AI.png" alt="" />
+            <button class="quick-game-btn">
+              <img src="./assets/img/Thiết kế ngay.png" alt="" />
+            </button>
+          </div>
+        </div>
         <div class="section rules">
           <div class="wrapper">
             <div class="rules-slide">
@@ -223,98 +238,21 @@
                 <div class="rule-slide-inner">
                   <div class="content-top">
                     <button class="rules-button_left" disabled>◀</button>
-                    <p>Giải thưởng</p>
+                    <p>GIẢI THƯỞNG</p>
                     <button class="rules-button_right" id="rules-button_right">
                       ▶
                     </button>
                   </div>
                   <div class="row prize-wrapper">
                     <div class="content-prize">
-                      <p>135 giải thưởng thử tài thiết kế</p>
-                      <p>
-                        mỗi giải gồm 1 gấu bông little nurse đáng yêu + 8 thỏi
-                        son dưỡng của lipice
-                      </p>
+                      <img
+                        src="./assets/img/135 phần quà độc quyền.png"
+                        alt=""
+                      />
+                      <img src="./assets/img/MỖI PHẦN QUÀ.png" alt="" />
                     </div>
                     <div class="prize-item-wrapper">
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
-                      <div class="prize-add">
-                        <img src="./assets/img/add.png" alt="" />
-                      </div>
-                      <div class="prize-item">
-                        <img
-                          src="./assets/img/3f75c0f7-232c-4afa-a58b-c9fd5fbf94f3.png"
-                          alt=""
-                        />
-                      </div>
+                      <img src="./assets/img/all-prize.png" alt="" />
                     </div>
                   </div>
                 </div>
@@ -325,97 +263,122 @@
                 <div class="rule-slide-inner">
                   <div class="content-top">
                     <button class="rules-button_left">◀</button>
-                    <p>Thể lệ chung</p>
+                    <p>THỂ LỆ CHUNG</p>
                     <button class="rules-button_right">▶</button>
                   </div>
-                  <div class="row collaps-wrapper">
+                  <div class="rules-desktop">
                     <div class="row">
-                      <div class="col-md-6">
-                        <button class="collapsible">
-                          Đối tượng tham gia
-                          <span class="icon"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="content">
-                          <ul>
-                            <li>
-                              Tất cả công dân Việt Nam và người nước ngoài hiện
-                              đang cư trú trên phạm vi lãnh thổ Việt Nam.
-                            </li>
-                            <li>
-                              Trường hợp công dân dự thi chưa đủ 18 tuổi phải có
-                              sự đồng ý của người giám hộ (như bố mẹ, người thân
-                              trong gia đình từ 18 tuổi trở lên) và giấy tờ tùy
-                              thân (cccd/hộ chiếu) trong trường hợp nhận thưởng.
-                            </li>
-                          </ul>
-                        </div>
+                      <div class="col-lg-4">
+                        <p>1. ĐỐI TƯỢNG THAM GIA</p>
+                        <ul>
+                          <li>
+                            Tất cả công dân Việt Nam và người nước ngoài hiện
+                            đang cư trú trên phạm vi lãnh thổ Việt Nam.
+                          </li>
+                          <li>
+                            Trường hợp công dân dự thi chưa đủ 18 tuổi phải có
+                            sự đồng ý của người giám hộ (như bố mẹ, người thân
+                            trong gia đình từ 18 tuổi trở lên) và giấy tờ tùy
+                            thân (CCCD/Hộ Chiếu) trong trường hợp nhận thưởng.
+                          </li>
+                        </ul>
+                        <p>2. THỜI GIAN THAM GIA</p>
+                        <ul>
+                          <li>
+                            Cuộc thi được triển khai trên toàn lãnh thổ Việt Nam
+                          </li>
+                          <li>
+                            Website chính chức của cuộc thi: <a href="">link</a>
+                          </li>
+                          <li>Từ ngày: … đến …</li>
+                        </ul>
                       </div>
-
-                      <div class="col-md-6">
-                        <button class="collapsible">
-                          Cách thức tham gia
-                          <span class="icon"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="content">
-                          <p>
-                            Bước 1: Gõ một đoạn yêu cầu vẽ nên câu chuyện
-                            riêng/gu riêng/màu sắc riêng, hoặc sở thích riêng
-                            của bạn bằng Tiếng việt.
-                            <br />
-                            <br />
-                            Ví dụ: "Vẽ một bé Munchkin có ngoại hình nấm lùn ngộ
-                            nghĩnh, đôi chân ngắn dễ thương, đang nằm kế lò sưởi
-                            trong ngôi nhà sang trọng ấm cúng".
-                          </p>
-                          <p>
-                            Bước 2: Tải hình ảnh selfie xinh đẹp nhất của bạn
-                            bằng cách "Chọn Ảnh" để tạo logo AI của riêng mình.
-                          </p>
-                          <p>
-                            Bước 3: Bấm nút "Tạo cây son của bạn". Nếu vẫn chưa
-                            ưng ý nhãn son, hãy nhấn nút "Hoàn tác" để tùy chỉnh
-                            lại nội dung hoặc hình ảnh mong muốn của bạn, với số
-                            lần chỉnh sửa tối đa 3 lần.
-                          </p>
-                          <p>
-                            Bước 4: Chia sẻ bài dự thi về trang Facebook cá nhân
-                            ở chế độ công khai kèm hashtags của cuộc thi lần
-                            lượt:
-                            <br />
-                            <span>#ChamAITuTayThietKe</span>
-                            <br />
-                            <span>#135Mentholatum</span>
-                            <br />
-                            <span>#SonDuongAmSo1DenTuNhatBan</span>
-                          </p>
-                        </div>
+                      <div class="col-lg-4">
+                        <p>3. CÁCH THỨC THAM GIA</p>
+                        <ul>
+                          <li>
+                            <span>Bước 1: </span>Gõ một đoạn yêu cầu vẽ nên câu
+                            chuyện riêng/gu riêng/màu sắc riêng, hoặc sở thích
+                            riêng của bạn bằng Tiếng Việt. Ví dụ: “Vẽ một bé
+                            Munchkin có ngoại hình nấm lùn ngộ nghĩnh, đôi chân
+                            ngắn dễ thương, đang nằm kế lò sưởi trong ngôi nhà
+                            sang trọng ấm cúng”.
+                          </li>
+                          <li>
+                            <span>Bước 2: </span>Tải hình ảnh selfie xinh đẹp
+                            nhất của bạn bằng cách “Chọn Ảnh” để tạo logo AI của
+                            riêng mình.
+                          </li>
+                          <li>
+                            <span>Bước 3: </span>Bấm nút “Tạo cây son của bạn”.
+                            Nếu vẫn chưa ưng ý nhãn son, hãy nhấn nút “Hoàn tác”
+                            để tùy chỉnh lại nội dung hoặc hình ảnh mong muốn
+                            của bạn, với số lần chỉnh sửa tối đa 3 lần.
+                          </li>
+                        </ul>
+                      </div>
+                      <div class="col-lg-4">
+                        <ul>
+                          <li>
+                            <span> Bước 4: </span> Chia sẻ bài dự thi về trang
+                            Facebook cá nhân ở chế độ công khai kèm hashtags của
+                            cuộc thi lần lượt:
+                            #chamAIthutaithietke #135namMentholatum #LipIce
+                            #sonduong
+                          </li>
+                        </ul>
                       </div>
                     </div>
-
-                    <div class="row mt-4">
-                      <div class="col-md-6">
-                        <button class="collapsible">
-                          Thời gian tham gia
-                          <span class="icon"><i class="fas fa-plus"></i></span>
-                        </button>
-                        <div class="content">
-                          <ul>
-                            <li>
-                              Cuộc thi được triển khai trên toàn lãnh thổ Việt
-                              Nam.
-                            </li>
-                            <li>
-                              Website chính thức của cuộc thi:
-                              <a href="">link</a>
-                            </li>
-                            <li>Từ ngày: ... đến ...</li>
-                          </ul>
-                        </div>
-                      </div>
-
-                      <div class="col-md-4"></div>
-                      <div class="col-md-4"></div>
-                    </div>
+                  </div>
+                  <div class="rules-mobile">
+                    <h2>1. Đối tượng tham gia</h2>
+                    <ul>
+                      <li>
+                        Tất cả công dân Việt Nam và người nước ngoài hiện đang
+                        cư trú trên phạm vi lãnh thổ Việt Nam.
+                      </li>
+                      <li>
+                        Trường hợp công dân dự thi chưa đủ 18 tuổi phải có sự
+                        đồng ý của người giám hộ (như bố mẹ, người thân trong
+                        gia đình từ 18 tuổi trở lên) và giấy tờ tùy thân
+                        (CCCD/Hộ Chiếu) trong trường hợp nhận thưởng.
+                      </li>
+                    </ul>
+                    <h2>2. Thời gian tham gia</h2>
+                    <ul>
+                      <li>
+                        Cuộc thi được triển khai trên toàn lãnh thổ Việt Nam
+                      </li>
+                      <li>
+                        Website chính chức của cuộc thi: <a href="">link</a>
+                      </li>
+                      <li>Từ ngày: … đến …</li>
+                    </ul>
+                    <h2>3. Cách thức tham gia</h2>
+                    <p>
+                      <span>Bước 1: </span>
+                      Gõ một đoạn yêu cầu vẽ nên câu chuyện riêng/gu riêng/màu
+                      sắc riêng, hoặc sở thích riêng của bạn bằng Tiếng Việt. Ví
+                      dụ: “Vẽ một bé Munchkin có ngoại hình nấm lùn ngộ nghĩnh,
+                      đôi chân ngắn dễ thương, đang nằm kế lò sưởi trong ngôi
+                      nhà sang trọng ấm cúng”.
+                    </p>
+                    <p>
+                      <span>Bước 2: </span>Tải hình ảnh selfie xinh đẹp nhất của
+                      bạn bằng cách “Chọn Ảnh” để tạo logo AI của riêng mình.
+                    </p>
+                    <p>
+                      <span>Bước 3: </span>Bấm nút “Tạo cây son của bạn”. Nếu
+                      vẫn chưa ưng ý nhãn son, hãy nhấn nút “Hoàn tác” để tùy
+                      chỉnh lại nội dung hoặc hình ảnh mong muốn của bạn, với số
+                      lần chỉnh sửa tối đa 3 lần.
+                    </p>
+                    <p>
+                      <span> Bước 4: </span>
+                      Chia sẻ bài dự thi về trang Facebook cá nhân ở chế độ công
+                      khai kèm hashtags của cuộc thi lần lượt:
+                      #chamAIthutaithietke #135namMentholatum #LipIce #sonduong
+                    </p>
                   </div>
                 </div>
               </div>
@@ -425,7 +388,7 @@
                 <div class="rule-slide-inner">
                   <div class="content-top">
                     <button class="rules-button_left">◀</button>
-                    <p>Công bố và trao giải</p>
+                    <p>CÔNG BỐ VÀ TRAO GIẢI</p>
                     <button
                       class="rules-button_right"
                       id="rules-button_right-3"
@@ -434,8 +397,10 @@
                     </button>
                   </div>
                   <h2 class="announced-top">
-                    135 giải thưởng được công bố <br />
-                    và trao thưởng theo mỗi tuần
+                    <img
+                      src="./assets/img/135 giải thưởng được công bố và trao thưởng theo mỗi tuần.png"
+                      alt=""
+                    />
                   </h2>
                   <div class="announced_first-content">
                     <p>
@@ -451,35 +416,35 @@
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 1: 05/10 - 13/10, *34 giải tuần được trao
+                        Tuần 1: 18/11 - 24/11/2024, *34 giải Tuần được trao
                       </li>
                       <li>
                         <span
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 2: 14/10 - 20/10, *34 giải tuần được trao
+                        Tuần 2: 25/11 - 01/12/2024, *34 giải Tuần được trao
+                      </li>
+                      <li>
+                        <span
+                          style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
+                          >⚪</span
+                        >Tuần 3: 02/12 - 08/12/2024, *34 giải Tuần được trao
+                      </li>
+
+                      <li>
+                        <span
+                          style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
+                          >⚪</span
+                        >
+                        Tuần 4: 09/12 - 15/12/2024, *33 giải Tuần được trao
                       </li>
                       <li>
                         <span
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 3: 21/10 - 27/10, *34 giải tuần được trao
-                      </li>
-                      <li>
-                        <span
-                          style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
-                          >⚪</span
-                        >
-                        Tuần 4: 28/10 - 31/10, *34 giải tuần được trao
-                      </li>
-                      <li>
-                        <span
-                          style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
-                          >⚪</span
-                        >
-                        Tuần 5: 05/10 - 13/10, *34 giải tuần được trao
+                        Tuần 5: 16/12 - 22/12/2024, *34 giải Tuần được trao
                       </li>
                     </ul>
                     <ul>
@@ -488,28 +453,28 @@
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 6: 14/10 - 20/10, *34 giải tuần được trao
+                        Tuần 6: 23/12 - 29/12/2024, *34 giải Tuần được trao
                       </li>
                       <li>
                         <span
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 7: 21/10 - 27/10, *34 giải tuần được trao
+                        Tuần 7: 30/12 - 05/01/2025, *34 giải Tuần được trao
                       </li>
                       <li>
                         <span
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 6: 28/10 - 31/10, *34 giải tuần được trao
+                        Tuần 8: 06/01 - 12/01/2025, *33 giải Tuần được trao
                       </li>
                       <li>
                         <span
                           style="display: inline-block; font-size: 5px; color: #ffffff; margin-right: 1rem;"
                           >⚪</span
                         >
-                        Tuần 6: 05/10 - 13/10, *34 giải tuần được trao
+                        Tuần 9: 13/01 - 19/01/2025, *34 giải Tuần được trao
                       </li>
                     </ul>
                   </div>
@@ -521,7 +486,7 @@
         <div class="section instruction">
           <div class="instruction-wrapper">
             <div>
-              <div class="content-top"><p>Hướng dẫn tham gia</p></div>
+              <div class="content-top"><p>HƯỚNG DẪN THAM GIA</p></div>
               <video controls id="video-instruction">
                 <source
                   src="./assets/video/12409852_2560_1440_30fps.mp4"
@@ -616,8 +581,8 @@
               class="col-lg-6 lipsticks-result-wrapper"
               style="height: 100%;"
             >
-              <p>Tạo nhãn son Licipe độc bản</p>
-              <div id="lipsticks-result" style="height: 75%; width: 75%"></div>
+              <img src="./assets/img/THỬ TÀI THIẾT KẾ.png" alt="" />
+              <div id="lipsticks-result" style="height: 60%; width: 65%"></div>
             </div>
           </div>
 
@@ -782,8 +747,8 @@
         <div class="section submissions">
           <div class="submission-wrapper">
             <div class="wrapper-broken-line"></div>
-            <div>
-              <h1>Bài dự thi</h1>
+            <div class="content-top">
+              <img src="./assets/img/BÀI DỰ THI.png" alt="" />
             </div>
             <div class="slick-carousel">
               <div class="submission-slide">
@@ -839,46 +804,59 @@
         </div>
         <div class="section information">
           <div class="information-wrapper">
-            <h2>Thông tin sản phẩm</h2>
+            <div class="content-top">
+              <img src="./assets/img/THÔNG TIN SẢN PHẨM.png" alt="" />
+            </div>
             <div class="custom-pagination">
-              <div data-slide="0">Lip pure</div>
-              <div data-slide="1">Lip pure có màu</div>
-              <div data-slide="2">Lip melty</div>
-              <div data-slide="3">Medilip</div>
-              <div data-slide="4">Licipe creamy</div>
+              <div data-slide="0">LIPICE</div>
+              <div data-slide="1">Lip PURE</div>
+              <div data-slide="2">Medilip</div>
+              <div data-slide="3">Melty Cream Lip</div>
+              <div data-slide="4">Lipstician</div>
               <div data-slide="5">Licipe sheer color</div>
               <div data-slide="6">Licipe sheer color q</div>
-              <div data-slide="7">Licipe fruit juice</div>
-              <div data-slide="8">Lipstician</div>
+              <div data-slide="7">Licipe sheer color fruit juice</div>
             </div>
             <div class="custom-prev"></div>
             <div class="custom-next"></div>
             <div class="slick-carousel">
+              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau">
+                <img src="./assets/img/Creamy1.png" alt="LIPICE" />
+                <div>
+                  <p>Dưỡng & bảo vệ môi hàng ngày</p>
+                </div>
+              </a>
               <a
                 href="https://lipice.com.vn/san-pham/son-duong-khong-mau/20-lipice-lip-pure"
               >
                 <img src="./assets/img/LipPure1.png" alt="Lip pure" />
-              </a>
-              <a
-                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/21-lipice-water-lip"
-              >
-                <img
-                  src="./assets/img/LipPureColor1.png"
-                  alt="Lip pure có màu"
-                />
-              </a>
-              <a
-                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/22-melty-cream-lip-dong-son-nhap-khau-tu-nhat-ban"
-              >
-                <img src="./assets/img/Lipmelty1.png" alt="Lip melty" />
+                <div>
+                  <p>Dưỡng hàng ngày cho môi nhạy cảm</p>
+                </div>
               </a>
               <a
                 href="https://lipice.com.vn/san-pham/son-duong-khong-mau/34-medi-lip"
               >
                 <img src="./assets/img/MediLip1.png" alt="Medilip" />
+                <div>
+                  <p>Phục hồi môi khô nứt sau 24h</p>
+                </div>
               </a>
-              <a href="https://lipice.com.vn/san-pham/son-duong-khong-mau">
-                <img src="./assets/img/Creamy1.png" alt="Licipe creamy" />
+              <a
+                href="https://lipice.com.vn/san-pham/son-duong-khong-mau/22-melty-cream-lip-dong-son-nhap-khau-tu-nhat-ban"
+              >
+                <img src="./assets/img/Lipmelty1.png" alt="Melty Cream Lip" />
+                <div><p>Dưỡng ẩm dài lâu</p></div>
+              </a>
+              <a
+                href="https://lipice.com.vn/san-pham/lipstician/74-lipstician-lip-serum-protector"
+              >
+                <img src="./assets/img/Liptician1.png" alt="Lipstician" />
+                <div>
+                  <p>
+                    Hiệu chỉnh sắc môi tự nhiên tùy theo sắc thái môi mỗi người
+                  </p>
+                </div>
               </a>
               <a
                 href="https://lipice.com.vn/san-pham/son-duong-khong-mau#huong-tu-nhien"
@@ -887,6 +865,9 @@
                   src="./assets/img/LicipeSheerColor1.png"
                   alt="Licipe sheer color"
                 />
+                <div>
+                  <p>Thơm hương các món nước ngon giới trẻ yêu thích</p>
+                </div>
               </a>
               <a
                 href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot"
@@ -895,6 +876,9 @@
                   src="./assets/img/LicipeSheerColorQ1.png"
                   alt="Licipe sheer color q"
                 />
+                <div>
+                  <p>Thơm hương các món nước ngon giới trẻ yêu thích</p>
+                </div>
               </a>
               <a
                 href="https://lipice.com.vn/san-pham/son-duong-co-mau-tu-nhien/27-lipice-sheer-color-fruit-juice#hong-dau-diu-ngot"
@@ -903,64 +887,15 @@
                   src="./assets/img/LicipeFruitJuice1.png"
                   alt="Licipe fruit juice"
                 />
-              </a>
-              <a
-                href="https://lipice.com.vn/san-pham/lipstician/74-lipstician-lip-serum-protector"
-              >
-                <img src="./assets/img/Liptician2.png" alt="Lipstician" />
+                <div><p>Son dưỡng lên màu đậm sắc</p></div>
               </a>
             </div>
           </div>
         </div>
         <div class="section brand-story">
           <div class="brand_story-wrapper">
-            <div class="row infor-content">Câu chuyện thương hiệu</div>
-            <div class="brand_story-information">
-              <div class="infor-left">
-                <p>
-                  LipIce đến từ Mentholatum thương hiệu có bề dày lịch sử 135
-                  năm:
-                </p>
-                <p>
-                  <span>1894:</span> Mentholatum mở đầu hành trình chăm sóc sức
-                  khỏe - sắc đẹp và nhanh chóng trở thành một thương hiệu nổi
-                  tiếng trên toàn Thế Giới.
-                </p>
-                <p>
-                  <span>Thập niên 90:</span> LipIce từ Mentholatum xuất hiện, là
-                  nhãn hiệu đầu tiên chăm sóc và tô điểm “môi xinh” của hàng
-                  triệu cô gái Việt.
-                </p>
-                <p>
-                  <span>Thập niên 2000:</span> Mở ra một chương mới trong hành
-                  trình làm đẹp khi lần đầu tiên ra mắt dòng son dưỡng hiệu
-                  chỉnh sắc môi LipIce Sheer Color, mang đến sắc hồng tự nhiên
-                  đặc trưng của mỗi người.
-                </p>
-              </div>
-              <div class="infor-right">
-                <p>
-                  <span>Thập niên 2010:</span> Đánh dấu xu hướng chăm dưỡng môi
-                  sử dụng thành phần từ thiên nhiên, gây ấn tượng với các mùi
-                  hương thơm ngon và bảng màu son đa dạng từ tự nhiên đến đậm
-                  sắc. Lip Pure - LipIce Sheer Color Q - LipIce Sheer Color
-                  Fruit Juice.
-                </p>
-                <p>
-                  <span>Thập niên 2020:</span> Đánh dấu hành trình phát triển
-                  những sản phẩm chăm sóc môi chuyên biệt, kết hợp giữa kiến
-                  thức khoa học và sự am hiểu về cấu trúc làn môi cùng với công
-                  nghệ hiện đại mang đến giải pháp tối ưu cho những vấn đề về
-                  môi của các cô gái Việt. Medi Lip - Melty Cream Lip - serum
-                  dưỡng môi Lipstician.
-                </p>
-                <p>
-                  <span
-                    >MENTHOLATUM LIPICE - SON DƯỠNG RIÊNG <br />
-                    TRIỆU LÀN MÔI VIỆT
-                  </span>
-                </p>
-              </div>
+            <div class="brand-story-content">
+              <img src="./assets/img/brand-story.png" alt="" />
             </div>
           </div>
         </div>
@@ -1022,7 +957,7 @@
             <div id="emailError" class="error"></div>
 
             <div class="register-btn-wrapper">
-              <button id="register_back-btn">Đăng nhập</button>
+              <button id="register_back-btn" type="button">Đăng nhập</button>
               <button type="submit" id="register-submit">Tiếp tục</button>
             </div>
           </form>

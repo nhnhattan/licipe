@@ -15,6 +15,7 @@ $(document).ready(function () {
     ],
     normalScrollElements: "#overlay",
     normalScrollElements: "#modal-result",
+    normalScrollElements: ".rules-mobile",
     scrollingSpeed: 1500,
     navigationPosition: "right",
     onLeave: function (origin, destination, direction) {
@@ -42,6 +43,13 @@ $(document).ready(function () {
         }
       }
 
+      if (origin.index === 1) {
+        var video = $("#video-banner").get(0);
+        if (video.paused) {
+          video.play();
+        }
+      }
+
       // switch (destination.index) {
       //   case 0:
       //     // changeImage("./assets/img/Creamy1.png", "quick-control-left_img");
@@ -60,7 +68,6 @@ $(document).ready(function () {
       //     $("#quick-control-right").show()
       // }
     },
-    
   });
   $.fn.fullpage.setAllowScrolling(true);
 
@@ -101,6 +108,8 @@ $(document).ready(function () {
   $(window).on("hashchange", function () {
     updateTextBasedOnHash();
   });
+
+  
 });
 
 $(document).ready(function () {

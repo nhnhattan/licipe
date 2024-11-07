@@ -1,9 +1,9 @@
 // Login
 const apiUrl = "https://proxy.advietnam.vn";
 const url135Years =
-  "http://135yearsmentholatum.lipice.com.vn/app/api/sql/Public_Return_Json";
+  "https://135yearsmentholatum.lipice.com.vn/app/api/sql/Public_Return_Json";
 
-var keywords = {
+var bannedWords = {
   Drug: [
     "drug",
     "dope",
@@ -202,8 +202,6 @@ var keywords = {
 };
 
 $(document).ready(function (blob) {
-  let formImage = new FormData();
-
   var bearerToken = "";
 
   function Authorize(data) {
@@ -259,6 +257,28 @@ $(document).ready(function (blob) {
     });
 
     return found;
+  }
+
+  function checkForBannedWords(input) {
+    const inputText = input;
+    let containsBannedWord = false;
+
+    $.each(bannedWords, function (category, wordsArray) {
+      $.each(wordsArray, function (index, word) {
+        const regex = new RegExp(`\\b${word}\\b`, "i");
+        if (regex.test(inputText)) {
+          containsBannedWord = true;
+          return false;
+        }
+      });
+      if (containsBannedWord) return false;
+    });
+
+    if (containsBannedWord) {
+      return false;
+    } else {
+      return true;
+    }
   }
 
   //   Cookies Functions --------------------------------
@@ -396,6 +416,7 @@ $(document).ready(function (blob) {
           //   Register Functions
           $.ajax({
             url: url135Years,
+            crossDomain: true,
             type: "POST",
             processData: false,
             contentType: false,
@@ -453,6 +474,7 @@ $(document).ready(function (blob) {
         formValue.append("ProcedureCallback", "Ai_AuthenticationCallback");
         $.ajax({
           url: `${apiUrl}/authorization`,
+          crossDomain: true,
           type: "POST",
           processData: false,
           contentType: false,
@@ -474,6 +496,7 @@ $(document).ready(function (blob) {
 
             $.ajax({
               url: `${apiUrl}/text-generate/translate-vi-en`,
+              crossDomain: true,
               type: "POST",
               processData: false,
               contentType: false,
@@ -484,6 +507,8 @@ $(document).ready(function (blob) {
               success: function (data, textStatus, xhr) {
                 // Check banned words in translation
                 if (checkKeyBanned(JSON.parse(data).Result)) {
+                  let formImage = new FormData();
+
                   formImage.append("Procedure", "Ai_TokenCheck");
                   formImage.append(
                     "Parameters",
@@ -500,6 +525,7 @@ $(document).ready(function (blob) {
                   //   Tạo ảnh AI
                   $.ajax({
                     url: `${apiUrl}/ai-generate/text-to-image`,
+                    crossDomain: true,
                     type: "POST",
                     processData: false,
                     contentType: false,
@@ -511,18 +537,44 @@ $(document).ready(function (blob) {
                     },
                     data: formImage,
                     success: function (data, textStatus, xhr) {
-                      $(".image-ai .loading-container img").hide();
-                      const imageData = JSON.parse(data);
-                      setTimeout(function () {
-                        $(".image-ai .loading-container").hide();
-                        $(".image-ai-img").attr(
-                          "src",
-                          `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
-                        );
-                        $(".image-ai-img").show();
-                        $("#create-image-ai").css("cursor", "default");
-                        setArrayToCookies("step", "1");
-                      }, 500);
+                      if (
+                        JSON.parse(data).Objects[0].UserAiResponse.includes(
+                          "Error"
+                        )
+                      ) {
+                        Toastify({
+                          text: "Có chứa từ cấm, vui lòng nhập lại!",
+                          duration: 2000,
+                          close: true,
+                          gravity: "top",
+                          position: "center",
+                          stopOnFocus: true,
+                          style: {
+                            background: "red",
+                          },
+                        }).showToast();
+                        $(".image-ai .loading-container img").hide();
+                        $("#create-image-ai").attr("disabled", "disabled");
+                        $("#keyword-box").text("");
+                        $("#create-image-ai").css("cursor", "not-allowed");
+                        formTranslate = new FormData();
+                        formValue = new FormData();
+                        return false;
+                      } else {
+                        $(".image-ai .loading-container img").hide();
+                        const imageData = JSON.parse(data);
+                        setTimeout(function () {
+                          $(".image-ai .loading-container").hide();
+                          $(".image-ai-img").attr(
+                            "src",
+                            `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
+                          );
+                          $(".image-ai-img").show();
+                          $("#create-image-ai").css("cursor", "default");
+                          setArrayToCookies("step", "1");
+                          $("#keyword-box").attr("disabled", "disabled");
+                        }, 500);
+                      }
                     },
                     error: function (error) {
                       console.error("Create Image AI Error", error);
@@ -571,6 +623,8 @@ $(document).ready(function (blob) {
         $("#create-image-ai").attr("disabled", "disabled");
         $("#keyword-box").text("");
         $("#create-image-ai").css("cursor", "not-allowed");
+        formTranslate = new FormData();
+        formValue = new FormData();
         return false;
       }
     }
@@ -578,9 +632,8 @@ $(document).ready(function (blob) {
 
   //   Login Function
   $("#login-form").submit(function (event) {
-    let formLogin = new FormData();
-
     event.preventDefault();
+    let formLogin = new FormData();
 
     $(".error").text("");
 
@@ -608,7 +661,6 @@ $(document).ready(function (blob) {
 
     if (isValid) {
       $("#login-form").hide();
-      event.preventDefault();
       $("#register-overlay .loading-container").show();
 
       formLogin.append("Procedure", "Ai_LoginByPhoneAndEmail");
@@ -623,6 +675,7 @@ $(document).ready(function (blob) {
       //   Login Functions
       $.ajax({
         url: url135Years,
+        crossDomain: true,
         type: "POST",
         cache: false,
         processData: false,

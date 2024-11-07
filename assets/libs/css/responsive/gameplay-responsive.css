@@ -250,17 +250,16 @@
 
   .finish-lipstick-wrapper .finish-img-wrapper img:nth-child(1) {
     width: 35%;
-    scale: 1;
     position: absolute;
     left: 50%;
     top: 50%;
   }
   .finish-lipstick-wrapper .finish-img-wrapper img:nth-child(2) {
-    width: 95%;
+    max-width: 85%;
   }
 
   .finish-lipstick-wrapper .finish-img-wrapper .username-content {
-    font-size: 1.8rem;
+    font-size: 1.4rem;
   }
 
   #create-image-ai_mobile {

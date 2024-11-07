@@ -23,6 +23,7 @@
 // window.addEventListener("resize", checkScreenSizeAndReload);
 
 const scene = new THREE.Scene();
+const glbLink = "./lipstick.glb";
 
 // Tạo camera
 const camera = new THREE.PerspectiveCamera(
@@ -157,6 +158,7 @@ frontViewCamera.position.set(0, 0, -5); // Position the front view camera
 frontViewCamera.lookAt(new THREE.Vector3(0, 0.5, 1));
 // Tải và thêm model 3D
 const loader = new THREE.GLTFLoader();
+loader.crossOrigin = "Anonymous";
 let rotate = true; // Biến lưu trạng thái xoay
 
 let progressBar = $(".progress");
@@ -259,6 +261,7 @@ loader.load(
         width: renderer.domElement.width,
         height: renderer.domElement.height,
       };
+
       var captureWidth = window.innerWidth; // Adjust the width as needed
       var captureHeight = window.innerHeight;
       renderer.setSize(captureWidth, captureHeight); // Increase the resolution
@@ -269,7 +272,13 @@ loader.load(
       // model.scale.set(0.5, 0.5, 0.5);
 
       // Capture the image from the front view
-      $("#lipstick-username").text(localStorage.getItem("userName"));
+      if (!getArrayFromCookies("loginCookies")) {
+        $("#lipstick-username").text(" ");
+      } else {
+        $("#lipstick-username").text(
+          getArrayFromCookies("loginCookies").Objects[0].UserName
+        );
+      }
       $(".section.gameplay .modal-result").css("display", "flex");
       var imgData = renderer.domElement.toDataURL("image/png");
       $("#capturedImage").attr("src", imgData).show();
@@ -332,6 +341,8 @@ loader.load(
         $("#create-lipstick").show();
         $("#register-form").hide();
         $("#register-overlay .loading-container").hide();
+        $("#keyword-box").removeAttr("disabled");
+        $("#file-upload-container").show();
         updateProgress(0);
         localStorage.removeItem("update");
         Texture_Label_Update("./assets/img/original.png");

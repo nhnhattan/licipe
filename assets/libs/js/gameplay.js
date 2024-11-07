@@ -469,6 +469,7 @@ $(document).ready(function () {
         formValue.append("ProcedureCallback", "Ai_AuthenticationCallback");
         $.ajax({
           url: `${apiUrl}/authorization`,
+          crossDomain: true,
           type: "POST",
           processData: false,
           contentType: false,
@@ -490,6 +491,7 @@ $(document).ready(function () {
 
             $.ajax({
               url: `${apiUrl}/text-generate/translate-vi-en`,
+              crossDomain: true,
               type: "POST",
               processData: false,
               contentType: false,
@@ -516,6 +518,7 @@ $(document).ready(function () {
                   //   Tạo ảnh AI
                   $.ajax({
                     url: `${apiUrl}/ai-generate/text-to-image`,
+                    crossDomain: true,
                     type: "POST",
                     processData: false,
                     contentType: false,
@@ -629,6 +632,7 @@ $(document).ready(function () {
       formAvatar.append("Style", "anime");
       $.ajax({
         url: `${apiUrl}/ai-generate/image-to-image`,
+        crossDomain: true,
         type: "POST",
         data: formAvatar,
         processData: false,
@@ -650,7 +654,7 @@ $(document).ready(function () {
             );
             $(".avatar-ai-img").show();
             $("#upload-image-mobile").css("bottom", "3.1%");
-            $("#create-lipstick-mobile").css("bottom", "3.6%")
+            $("#create-lipstick-mobile").css("bottom", "3.6%");
             currentStep++;
             updateStep();
             $(".form3-wrapper").show();
@@ -663,8 +667,12 @@ $(document).ready(function () {
     }
   });
 
+  function removeTrailingApostrophe(url) {
+    return url.replace(/'$/, "");
+  }
+
   $("#create-lipstick-mobile").click(function () {
-    Texture_Label_Update($(".image-ai-img").attr("src"));
+    Texture_Label_Update(($(".image-ai-img").attr("src")));
     Texture_Avatar_Update($(".avatar-ai-img").attr("src"));
     $("#create-lipstick-mobile").attr("disabled", "disabled");
     $("#create-lipstick-mobile").css("bottom", "3.5%");

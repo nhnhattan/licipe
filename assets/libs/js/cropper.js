@@ -289,7 +289,8 @@ $(document).ready(function () {
           formData.append("Prompt", "The face on center image");
           formData.append("Style", "anime");
           $.ajax({
-            url: `https://proxy.advietnam.vn/ai-generate/image-to-image`,
+            url: `${apiUrl}/ai-generate/image-to-image`,
+            crossDomain: true,
             type: "POST",
             data: formData,
             processData: false,
@@ -301,19 +302,43 @@ $(document).ready(function () {
               );
             },
             success: function (data, textStatus, xhr) {
-              $(".avatar-ai .loading-container img").hide();
-              const imageData = JSON.parse(data);
-              setTimeout(function () {
-                $(".avatar-ai .loading-container").hide();
-                $(".avatar-ai-img").attr(
-                  "src",
-                  `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
-                );
-                $(".avatar-ai-img").show();
+              if (
+                JSON.parse(data).Objects[0].UserAiResponse.includes("Error")
+              ) {
+                Toastify({
+                  text: JSON.parse(data).objects[0].UserAiResponse,
+                  duration: 3000,
+                  close: true,
+                  gravity: "top",
+                  position: "center",
+                  stopOnFocus: true,
+                  style: {
+                    background: "linear-gradient(to right, red, red)",
+                  },
+                }).showToast();
+                $(".avatar-ai.loading-container").hide();
                 $uploadImageButton.attr("disabled", "disabled");
                 $uploadImageButton.css("cursor", "default");
                 $("#create-lipstick").removeAttr("disabled");
-              }, 500);
+                $(".avatar-ai-img").hide();
+                $(".avatar-ai-img").attr("src", ``);
+                return false;
+              } else {
+                $(".avatar-ai .loading-container img").hide();
+                const imageData = JSON.parse(data);
+                setTimeout(function () {
+                  $(".avatar-ai .loading-container").hide();
+                  $(".avatar-ai-img").attr(
+                    "src",
+                    `https://proxy.advietnam.vn/ai/${imageData.Objects[0].UserAiResponse}`
+                  );
+                  $(".avatar-ai-img").show();
+                  $uploadImageButton.attr("disabled", "disabled");
+                  $uploadImageButton.css("cursor", "default");
+                  $("#create-lipstick").removeAttr("disabled");
+                  $("#file-upload-container").hide();
+                }, 500);
+              }
             },
             error: function (jqXHR, textStatus, errorThrown) {
               alert("Image upload failed: " + textStatus);

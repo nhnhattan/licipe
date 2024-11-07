@@ -7,16 +7,16 @@
 }
 
 .gameplay-wrapper {
+  font-family: "rubikBlack";
   position: absolute;
   top: 55%;
   left: 50%;
   transform: translate(-50%, -50%);
   padding: 15px;
   width: 70%;
-  /*height: 85vh;*/
   background-color: rgba(255, 255, 255, 0.25);
   border: rgb(255, 255, 255) solid 2px;
-  border-radius: 20px;
+  border-radius: 5rem;
   z-index: 99;
   display: flex;
   align-items: center;
@@ -41,6 +41,12 @@
   justify-items: center;
 }
 
+.lipsticks-result-wrapper img {
+  width: 70%;
+  height: auto;
+  margin-bottom: 2rem;
+}
+
 .lipsticks-result-wrapper p {
   text-transform: uppercase;
   font-size: 36px;
@@ -56,7 +62,12 @@
   border-radius: 40px;
 }
 
+#result {
+  font-family: 'rubikBold';
+}
+
 textarea {
+  font-family: 'rubik';
   width: 100%;
   height: 70%;
   padding: 12px 12px;
@@ -354,21 +365,24 @@ textarea {
 }
 
 .file-upload-label {
-  display: inline-block;
-  padding: 8px 8px;
-  border-radius: 5px;
-  background-color: #007bff;
+  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  border: none;
+  padding: 0.2rem 2rem;
+  border-radius: 20px;
   color: white;
+  font-size: 1.4rem;
+  font-weight: 700;
+  text-transform: uppercase;
+  transition: background-image 0.4s;
   cursor: pointer;
-  font-size: 12px;
-  transition: background-color 0.3s;
 }
 
 .file-upload-label:hover {
-  background-color: #0056b3;
+  background-image: linear-gradient(to left, #f437fa, #fca0a0);
 }
 
 #file-name {
+  font-family: 'rubikBold';
   color: #333;
   max-width: 100px;
   white-space: nowrap;
@@ -442,7 +456,7 @@ textarea {
 .create-ai-btn-bottom button:nth-child(2) {
   border-radius: 20px;
   border: none;
-  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  background-image: linear-gradient(to left, #feafc1 0%, #fec2ff 100%);
   padding: 0.2rem 1.2rem;
   color: white;
   font-size: 1.6rem;
@@ -457,7 +471,7 @@ textarea {
 .create-ai-btn-bottom button:nth-child(3) {
   border-radius: 20px;
   border: none;
-  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  background-image: linear-gradient(to left, #feafc1 0%, #fec2ff 100%);
   padding: 0.2rem 1.2rem;
   color: white;
   font-size: 1.6rem;
@@ -496,20 +510,29 @@ textarea {
 .finish-lipstick-wrapper {
   width: 30%;
   height: 95%;
-  background-image: linear-gradient(to right bottom, #8dc6fe, #cecece);
-  border-radius: 10px;
+  background-image: url("../../img/background-download.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
+  position: relative;
 }
 
 .finish-lipstick-wrapper .finish-img-wrapper {
   width: 80%;
   height: 80%;
-  background-color: transparent;
+  background-image: url("../../img/background-download.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-attachment: scroll;
+  background-position: center;
+  /* background-color: transparent; */
   border: white 2px solid;
-  position: relative;
+  /* position: relative; */
   border-radius: 20px;
   pointer-events: none;
 }
@@ -518,15 +541,15 @@ textarea {
   max-width: 100%;
   height: auto;
   position: absolute;
-  left: 68%;
-  top: 58%;
+  left: 50%;
+  top: 50%;
   transform: translate(-50%, -50%) rotate(-15deg);
   /* transform: ; */
-  scale: 1.4;
+  /* scale: 1.4; */
 }
 
 .finish-lipstick-wrapper .finish-img-wrapper img:nth-child(2) {
-  max-width: 90%;
+  max-width: 75%;
   height: auto;
   position: absolute;
   left: 50%;
@@ -535,23 +558,34 @@ textarea {
 }
 
 .finish-lipstick-wrapper .finish-img-wrapper img:nth-child(3) {
-  max-width: 60%;
+  max-width: 50%;
   height: auto;
   position: absolute;
   left: 50%;
-  top: 10%;
+  top: 16%;
   transform: translate(-50%, -50%);
 }
 
 .finish-lipstick-wrapper .finish-img-wrapper .username-content {
   padding: 0.6rem;
+  left: 0;
   text-align: center;
   width: 100%;
+  max-width: 100%;
   position: absolute;
-  top: 85%;
-  font-size: 11px;
-  color: #0052ff;
-  font-weight: 600;
+  top: 78%;
+  font-size: 1.6rem;
+  color: white;
+  font-weight: 800;
+  text-shadow: 1px 1px rgba(0, 0, 0, 0.8);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+.username-content p {
+  max-width: 80%;
 }
 
 .finish-lipstick-wrapper .finish-button-wrapper {
@@ -564,7 +598,7 @@ textarea {
 }
 
 .finish-lipstick-wrapper .finish-button-wrapper button {
-  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  background-image: linear-gradient(to left, #feafc1 0%, #fec2ff 100%);
   padding: 6px 15px;
   border-radius: 10px;
   border: none;
@@ -668,7 +702,7 @@ textarea {
 }
 
 #login-form button {
-  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  background-image: linear-gradient(to left, #feafc1 0%, #fec2ff 100%);
   padding: 6px 15px;
   border-radius: 10px;
   border: none;
@@ -725,7 +759,7 @@ input[type="date"]::-webkit-calendar-picker-indicator {
 }
 
 #register-form .register-btn-wrapper button {
-  background-image: linear-gradient(to left, #e872ec, #ffafaf);
+  background-image: linear-gradient(to left, #feafc1 0%, #fec2ff 100%);
   padding: 6px 15px;
   border-radius: 10px;
   border: none;
